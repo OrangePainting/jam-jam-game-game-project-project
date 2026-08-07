@@ -31,6 +31,12 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	move_and_slide()
+	
+	# after calling move_and_slide()
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is Interactable:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"): # E key
