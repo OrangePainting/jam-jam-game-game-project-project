@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cmxdw8fym7wjv"]
+
+[ext_resource type="Texture2D" uid="uid://c4caxosbs3nhi" path="res://game/assets/BWroughBG.png" id="1_1db1t"]
+
+[node name="Background" type="CanvasLayer" unique_id=1966221470]
+layer = -5
+follow_viewport_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=246088121]
+texture = ExtResource("1_1db1t")
+centered = false
