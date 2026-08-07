@@ -19,12 +19,10 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_body_entered(body: Node) -> void: # touches another body
+func _on_body_entered(body: Node) -> void:
 	push_error("Interactable._on_body_entered() not implemented in %s. Define it!" % name)
 
 
-func _on_zone_entered(area: Area2D) -> void: # touches a zone
+
+func _on_zone_entered(area: Area2D) -> void:
 	push_error("Interactable._on_zone_entered() not implemented in %s. Define it!" % name)
-
-
-# bird needs to interact, by sending signal

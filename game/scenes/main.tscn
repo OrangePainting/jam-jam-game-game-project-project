@@ -2,12 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cb0gksp0oo4w5" path="res://game/scripts/main.gd" id="1_20rwd"]
 [ext_resource type="PackedScene" uid="uid://dor5w2mi7q7os" path="res://game/scenes/bird.tscn" id="2_jbjdl"]
-[ext_resource type="PackedScene" uid="uid://mth47qr6lm0d" path="res://game/scenes/interactable.tscn" id="3_gp8w2"]
 
 [node name="Main" type="Node2D" unique_id=1933915851]
 script = ExtResource("1_20rwd")
 
-[node name="Bird" parent="." unique_id=1533840289 node_paths=PackedStringArray("main") instance=ExtResource("2_jbjdl")]
-main = NodePath("..")
-
-[node name="Object 1" parent="." unique_id=467946923 instance=ExtResource("3_gp8w2")]
+[node name="Bird" parent="." unique_id=1533840289 instance=ExtResource("2_jbjdl")]
