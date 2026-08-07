@@ -1,5 +1,10 @@
 class_name Interactable extends RigidBody2D
 
+# Base class for any interactable object, that can be pushed or picked up or any other general interaction
+# For a specific object that has it's own features, just write "extends Interactable" at the top
+# on body entered, and on zone entered are required functions
+# on picked up and on dropped are optional functions to write
+
 @export var can_interact: bool = true
 
 @export var carry_offset := Vector2(-50, 0)
@@ -33,6 +38,7 @@ func pick_up(new_held_by: Node2D) -> bool:
 	freeze = true
 	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
 	collision_detector.disabled = true
+	_on_picked_up()
 	return true
 
 func drop() -> void:
@@ -42,6 +48,15 @@ func drop() -> void:
 	held_by = null
 	freeze = false
 	collision_detector.disabled = false
+	_on_dropped()
+
+## Override to react to being picked up
+func _on_picked_up() -> void:
+	pass
+
+## Override to react to being dropped
+func _on_dropped() -> void:
+	pass
 
 func _on_body_entered(body: Node) -> void: # touches another body
 	if body is Bird:
