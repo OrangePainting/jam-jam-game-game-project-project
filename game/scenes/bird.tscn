@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dor5w2mi7q7os"]
+
+[ext_resource type="Script" uid="uid://cwv178bf0kq1d" path="res://game/scripts/bird.gd" id="1_k4npa"]
+[ext_resource type="Texture2D" uid="uid://buqjft5cgjgjx" path="res://game/assets/icon.svg" id="2_mic8x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_li6ia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mic8x")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwl2k"]
+size = Vector2(64, 64)
+
+[node name="Bird" type="CharacterBody2D" unique_id=1533840289]
+script = ExtResource("1_k4npa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=453085113]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_li6ia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=406665853]
+shape = SubResource("RectangleShape2D_jwl2k")
