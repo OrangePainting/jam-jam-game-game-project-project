@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://b5r4tjv0lc28s"]
 
 [ext_resource type="Script" uid="uid://cb0gksp0oo4w5" path="res://game/scripts/main.gd" id="1_20rwd"]
+[ext_resource type="PackedScene" uid="uid://i0ykj17psmms" path="res://game/scenes/world.tscn" id="2_8buom"]
 [ext_resource type="PackedScene" uid="uid://dor5w2mi7q7os" path="res://game/scenes/bird.tscn" id="2_jbjdl"]
 [ext_resource type="PackedScene" uid="uid://mth47qr6lm0d" path="res://game/scenes/interactable.tscn" id="3_gp8w2"]
 
 [node name="Main" type="Node2D" unique_id=1933915851]
 script = ExtResource("1_20rwd")
+
+[node name="World" parent="." unique_id=643275255 instance=ExtResource("2_8buom")]
 
 [node name="Bird" parent="." unique_id=1533840289 node_paths=PackedStringArray("main") instance=ExtResource("2_jbjdl")]
 main = NodePath("..")
