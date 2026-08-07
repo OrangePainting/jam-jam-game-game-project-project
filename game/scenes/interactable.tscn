@@ -28,6 +28,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_li6ia")
 
 [node name="InteractionDetection" type="CollisionShape2D" parent="." unique_id=1239826289]
+unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_fic7a")
 
 [node name="ZoneDetection" type="Area2D" parent="." unique_id=843964876]

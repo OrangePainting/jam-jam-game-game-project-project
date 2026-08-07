@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Bird extends CharacterBody2D
 
 @export var speed: float = 200.0
 @export var gravity: float = 900.0
@@ -9,6 +9,7 @@ var push_force = 40.0 # This represents the player's inertia.
 @export var main: Node2D
 
 var interactables : Array[Interactable] = []
+var held_interactable: Interactable = null
 
 signal interact
 
@@ -39,8 +40,15 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"): # E key
-		var object := find_interactable()
-		interact.emit(object)
+		if held_interactable:
+			held_interactable.drop()
+			held_interactable = null
+			interact.emit(null) # null signal means object is dropped
+		else:
+			var interactable := find_interactable()
+			if interactable and interactable.pick_up(self):
+				held_interactable = interactable
+				interact.emit(interactable)
 
 
 func find_interactable() -> Interactable:
