@@ -4,15 +4,13 @@ extends CharacterBody2D
 @export var gravity: float = 900.0
 @export var flap: float = -800.0 #upward force for flapping
 @export var terminal_velocity: float = 400.0
+var push_force = 40.0 # This represents the player's inertia.
 
 @export var main: Node2D
 
 var interactables : Array[Interactable] = []
 
 signal interact
-
-# This represents the player's inertia.
-var push_force = 80.0
 
 
 func _physics_process(delta: float) -> void:
@@ -30,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	move_and_slide()
 	
 	# after calling move_and_slide()
@@ -41,8 +39,8 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"): # E key
-		find_interactable()
-		interact.emit() # later may add a paramter for what the object is
+		var object := find_interactable()
+		interact.emit(object)
 
 
 func find_interactable() -> Interactable:
@@ -56,6 +54,7 @@ func _on_interaction_detector_body_entered(body: Node2D) -> void:
 		if body not in interactables:
 			interactables.append(body)
 			print("object added")
+
 
 
 func _on_interaction_detector_body_exited(body: Node2D) -> void:

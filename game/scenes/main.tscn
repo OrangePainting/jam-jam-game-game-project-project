@@ -11,6 +11,8 @@ script = ExtResource("1_20rwd")
 [node name="World" parent="." unique_id=643275255 instance=ExtResource("2_8buom")]
 
 [node name="Bird" parent="." unique_id=1533840289 node_paths=PackedStringArray("main") instance=ExtResource("2_jbjdl")]
+position = Vector2(200, 100)
 main = NodePath("..")
 
 [node name="Object 1" parent="." unique_id=467946923 instance=ExtResource("3_gp8w2")]
+position = Vector2(400, 0)
