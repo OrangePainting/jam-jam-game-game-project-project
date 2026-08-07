@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://mth47qr6lm0d"]
+
+[ext_resource type="Script" uid="uid://bewbw40meyqg0" path="res://game/scripts/interactable.gd" id="1_jk6on"]
+[ext_resource type="Texture2D" uid="uid://buqjft5cgjgjx" path="res://game/assets/icon.svg" id="2_4jvsd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_li6ia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4jvsd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fic7a"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwl2k"]
+size = Vector2(64, 64)
+
+[node name="Interactable" type="RigidBody2D" unique_id=467946923]
+script = ExtResource("1_jk6on")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=591686422]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_li6ia")
+
+[node name="InteractionDetection" type="CollisionShape2D" parent="." unique_id=1239826289]
+shape = SubResource("RectangleShape2D_fic7a")
+
+[node name="ZoneDetection" type="Area2D" parent="." unique_id=843964876]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDetection" unique_id=2004845325]
+shape = SubResource("RectangleShape2D_jwl2k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="ZoneDetection" to="." method="_on_zone_entered"]
