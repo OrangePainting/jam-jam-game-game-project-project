@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drqdhufirq0a2"]
 
-[ext_resource type="Texture2D" uid="uid://cl44hjob5vjl8" path="res://game/assets/rock_temp.png" id="1_bwbla"]
+[ext_resource type="Texture2D" uid="uid://s2olkmo35nkl" path="res://game/assets/rock.png" id="1_bwbla"]
 
 [node name="Rock" type="StaticBody2D" unique_id=359115719]
 z_index = -5
@@ -11,4 +11,4 @@ collision_mask = 0
 texture = ExtResource("1_bwbla")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1841905455]
-polygon = PackedVector2Array(-43, -64, 7, -19, 44, -23, 56, 18, 72, 9, 94, 38, -85, 66, -88, -1, -54, -20)
+polygon = PackedVector2Array(-63, 3, -68, 71, 68, 97, 146, 44, 126, -64, 94, -92, 82, -134, 24, -159, -1, -137, -24, -27)

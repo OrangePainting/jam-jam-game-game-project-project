@@ -2,26 +2,49 @@
 
 [ext_resource type="PackedScene" uid="uid://mth47qr6lm0d" path="res://game/scenes/interactable.tscn" id="1_ksfeo"]
 [ext_resource type="Script" uid="uid://d4fa4b1wpur8i" path="res://game/scripts/breakable_interactable.gd" id="2_6vytj"]
-[ext_resource type="Texture2D" uid="uid://csdq32fipj4uj" path="res://game/assets/acorn_temp.png" id="2_bbhm3"]
+[ext_resource type="Texture2D" uid="uid://bunhn8fl3ak07" path="res://game/assets/acorn_sprite_sheet.png" id="3_bbhm3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfdsl"]
+atlas = ExtResource("3_bbhm3")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tgse"]
+atlas = ExtResource("3_bbhm3")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vytj"]
+atlas = ExtResource("3_bbhm3")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6vytj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_bbhm3")
+"texture": SubResource("AtlasTexture_qfdsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tgse")
+}],
+"loop": 0,
+"name": &"Cracked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vytj")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"Uncracked",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qm8dg"]
-radius = 17.0
-height = 60.0
+radius = 15.0
+height = 44.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qfdsl"]
 radius = 20.0
-height = 80.0
+height = 58.0
 
 [node name="Acorn" unique_id=467946923 instance=ExtResource("1_ksfeo")]
 script = ExtResource("2_6vytj")
@@ -29,13 +52,15 @@ break_on_name = "Rock"
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
 sprite_frames = SubResource("SpriteFrames_6vytj")
+animation = &"Uncracked"
 
 [node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
-position = Vector2(0, 8)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_qm8dg")
 
 [node name="ZoneDetection" parent="." index="2" unique_id=843964876]
-position = Vector2(0, 5)
+visible = false
+position = Vector2(0, 3)
 
 [node name="CollisionShape2D" parent="ZoneDetection" index="0" unique_id=2004845325]
 shape = SubResource("CapsuleShape2D_qfdsl")
