@@ -142,8 +142,8 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy8uo"]
-size = Vector2(66, 63)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4npa"]
+size = Vector2(60, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwl2k"]
 size = Vector2(42, 148)
@@ -158,9 +158,13 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_li6ia")
 animation = &"flying_open_beak"
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=997517872]
+position = Vector2(0, -18)
+polygon = PackedVector2Array(0, 0, 30, 60, -30, 60)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1748180598]
-position = Vector2(0, 29.5)
-shape = SubResource("RectangleShape2D_cy8uo")
+position = Vector2(0, 51.5)
+shape = SubResource("RectangleShape2D_k4npa")
 
 [node name="InteractionDetector" type="Area2D" parent="." unique_id=950097939]
 collision_layer = 2
@@ -174,5 +178,6 @@ shape = SubResource("RectangleShape2D_jwl2k")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2129902884]
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
+
 [connection signal="body_entered" from="InteractionDetector" to="." method="_on_interaction_detector_body_entered"]
 [connection signal="body_exited" from="InteractionDetector" to="." method="_on_interaction_detector_body_exited"]
