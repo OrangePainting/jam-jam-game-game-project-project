@@ -160,9 +160,5 @@ shape = SubResource("RectangleShape2D_cy8uo")
 position = Vector2(-57, -0.5)
 shape = SubResource("RectangleShape2D_jwl2k")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=125444753]
-position_smoothing_enabled = true
-position_smoothing_speed = 2.0
-
 [connection signal="body_entered" from="InteractionDetector" to="." method="_on_interaction_detector_body_entered"]
 [connection signal="body_exited" from="InteractionDetector" to="." method="_on_interaction_detector_body_exited"]
