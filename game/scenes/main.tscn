@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://g7uytigmrbqh" path="res://game/scenes/acorn.tscn" id="4_8buom"]
 [ext_resource type="PackedScene" uid="uid://drqdhufirq0a2" path="res://game/scenes/rock.tscn" id="5_ejk4j"]
 [ext_resource type="PackedScene" uid="uid://cmxdw8fym7wjv" path="res://game/scenes/background.tscn" id="6_l3qal"]
+[ext_resource type="PackedScene" uid="uid://mth47qr6lm0d" path="res://game/scenes/interactable.tscn" id="5_ejk4j"]
 
 [node name="Main" type="Node2D" unique_id=1933915851]
 script = ExtResource("1_20rwd")
@@ -29,3 +30,6 @@ position = Vector2(323, 197)
 position = Vector2(243, 521)
 
 [node name="Background" parent="." unique_id=1966221470 instance=ExtResource("6_l3qal")]
+
+[node name="Interactable" parent="." unique_id=501243882 instance=ExtResource("5_ejk4j")]
+position = Vector2(572, 239)
