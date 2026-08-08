@@ -142,8 +142,11 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy8uo"]
+size = Vector2(66, 63)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwl2k"]
-size = Vector2(64, 64)
+size = Vector2(42, 115)
 
 [node name="Bird" type="CharacterBody2D" unique_id=1533840289]
 collision_layer = 2
@@ -155,5 +158,17 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_li6ia")
 animation = &"flying_open_beak"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=406665853]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1748180598]
+position = Vector2(0, 29.5)
+shape = SubResource("RectangleShape2D_cy8uo")
+
+[node name="InteractionDetector" type="Area2D" parent="." unique_id=950097939]
+collision_layer = 2
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector" unique_id=406665853]
+position = Vector2(-57, -0.5)
 shape = SubResource("RectangleShape2D_jwl2k")
+
+[connection signal="body_entered" from="InteractionDetector" to="." method="_on_interaction_detector_body_entered"]
+[connection signal="body_exited" from="InteractionDetector" to="." method="_on_interaction_detector_body_exited"]

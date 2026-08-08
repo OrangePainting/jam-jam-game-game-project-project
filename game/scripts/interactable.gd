@@ -1,8 +1,19 @@
 class_name Interactable extends RigidBody2D
 
+# Base class for any interactable object, that can be pushed or picked up or any other general interaction
+# For a specific object that has it's own features, just write "extends Interactable" at the top
+# on body entered, and on zone entered are required functions
+# on picked up and on dropped are optional functions to write
+
 @export var can_interact: bool = true
 
+@export var carry_offset := Vector2(-50, 0)
+
 @onready var zone_detector: Area2D = %ZoneDetection
+@onready var collision_detector: CollisionShape2D = %InteractionDetection
+
+var is_held: bool = false
+var held_by: Node2D = null
 
 # Linear velocity is already built into RigidBody2D, so we can just use
 #   linear_velocity = Vector2.ONE 
@@ -15,14 +26,46 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	if is_held and is_instance_valid(held_by):
+		global_position = held_by.global_position + carry_offset
+
+func pick_up(new_held_by: Node2D) -> bool:
+	if is_held or not can_interact: return false
+	
+	is_held = true
+	held_by = new_held_by
+	freeze = true
+	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
+	collision_detector.disabled = true
+	_on_picked_up()
+	return true
+
+func drop() -> void:
+	if not is_held: return
+	
+	is_held = false
+	held_by = null
+	freeze = false
+	collision_detector.disabled = false
+	_on_dropped()
+
+## Override to react to being picked up
+func _on_picked_up() -> void:
 	pass
 
+## Override to react to being dropped
+func _on_dropped() -> void:
+	pass
 
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(body: Node) -> void: # touches another body
+	if body is Bird:
+		pass
 	push_error("Interactable._on_body_entered() not implemented in %s. Define it!" % name)
 
 
-
-func _on_zone_entered(area: Area2D) -> void:
+func _on_zone_entered(area: Area2D) -> void: # touches a zone
 	push_error("Interactable._on_zone_entered() not implemented in %s. Define it!" % name)
+
+
+# bird needs to interact, by sending signal
