@@ -35,9 +35,9 @@ shape = SubResource("RectangleShape2D_fic7a")
 
 [node name="ZoneDetection" type="Area2D" parent="." unique_id=843964876]
 unique_name_in_owner = true
-metadata/_edit_group_ = true
 collision_layer = 16
 collision_mask = 24
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDetection" unique_id=2004845325]
 shape = SubResource("RectangleShape2D_jwl2k")
