@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://i0ykj17psmms" path="res://game/scenes/world.tscn" id="2_8buom"]
 [ext_resource type="PackedScene" uid="uid://dor5w2mi7q7os" path="res://game/scenes/bird.tscn" id="2_jbjdl"]
 [ext_resource type="PackedScene" uid="uid://g7uytigmrbqh" path="res://game/scenes/acorn.tscn" id="4_8buom"]
-[ext_resource type="PackedScene" uid="uid://drqdhufirq0a2" path="res://game/scenes/rock.tscn" id="5_ejk4j"]
-[ext_resource type="PackedScene" uid="uid://cmxdw8fym7wjv" path="res://game/scenes/background.tscn" id="6_l3qal"]
 [ext_resource type="PackedScene" uid="uid://mth47qr6lm0d" path="res://game/scenes/interactable.tscn" id="5_ejk4j"]
+[ext_resource type="PackedScene" uid="uid://cmxdw8fym7wjv" path="res://game/scenes/background.tscn" id="6_l3qal"]
+[ext_resource type="PackedScene" uid="uid://drqdhufirq0a2" path="res://game/scenes/rock.tscn" id="7_uk16q"]
 
 [node name="Main" type="Node2D" unique_id=1933915851]
 script = ExtResource("1_20rwd")
@@ -26,10 +26,10 @@ position = Vector2(727, 328)
 [node name="Acorn3" parent="." unique_id=1992720772 instance=ExtResource("4_8buom")]
 position = Vector2(323, 197)
 
-[node name="Rock" parent="." unique_id=359115719 instance=ExtResource("5_ejk4j")]
-position = Vector2(243, 521)
-
 [node name="Background" parent="." unique_id=1966221470 instance=ExtResource("6_l3qal")]
 
 [node name="Interactable" parent="." unique_id=501243882 instance=ExtResource("5_ejk4j")]
 position = Vector2(572, 239)
+
+[node name="Rock" parent="." unique_id=359115719 instance=ExtResource("7_uk16q")]
+position = Vector2(214, 577)
