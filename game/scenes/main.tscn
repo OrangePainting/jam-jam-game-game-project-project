@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://i0ykj17psmms" path="res://game/scenes/world.tscn" id="2_8buom"]
 [ext_resource type="PackedScene" uid="uid://dor5w2mi7q7os" path="res://game/scenes/bird.tscn" id="2_jbjdl"]
 [ext_resource type="PackedScene" uid="uid://mth47qr6lm0d" path="res://game/scenes/interactable.tscn" id="3_gp8w2"]
+[ext_resource type="PackedScene" uid="uid://cmxdw8fym7wjv" path="res://game/scenes/background.tscn" id="3_gp8w2"]
 
 [node name="Main" type="Node2D" unique_id=1933915851]
 script = ExtResource("1_20rwd")
