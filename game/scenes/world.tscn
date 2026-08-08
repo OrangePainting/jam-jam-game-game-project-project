@@ -6,6 +6,8 @@
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1580414199]
 position = Vector2(0, 600)
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=982164524]
 shape = SubResource("WorldBoundaryShape2D_li6ia")

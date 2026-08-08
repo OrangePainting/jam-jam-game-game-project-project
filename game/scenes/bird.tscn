@@ -163,6 +163,8 @@ position = Vector2(0, 29.5)
 shape = SubResource("RectangleShape2D_cy8uo")
 
 [node name="InteractionDetector" type="Area2D" parent="." unique_id=950097939]
+collision_layer = 2
+collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector" unique_id=406665853]
 position = Vector2(-57, -0.5)
