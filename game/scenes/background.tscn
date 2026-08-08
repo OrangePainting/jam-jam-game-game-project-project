@@ -7,5 +7,6 @@ layer = -5
 follow_viewport_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=246088121]
+position = Vector2(0, -1512)
 texture = ExtResource("1_1db1t")
 centered = false
