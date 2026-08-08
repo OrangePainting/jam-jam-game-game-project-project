@@ -7,6 +7,9 @@ extends CharacterBody2D
 
 signal interact
 
+func _ready() -> void:
+	$AnimatedSprite2D.play()
+
 func _physics_process(delta: float) -> void:
 	# move left/right
 	var direction := Input.get_axis("move_left", "move_right")
@@ -23,6 +26,12 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	
+	if velocity.x > 0: # Face right
+		$AnimatedSprite2D.flip_h = true
+	elif velocity.x < 0: # Face left
+		$AnimatedSprite2D.flip_h = false
+	
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
