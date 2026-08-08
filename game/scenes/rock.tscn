@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://drqdhufirq0a2"]
+
+[ext_resource type="Texture2D" uid="uid://cl44hjob5vjl8" path="res://game/assets/rock_temp.png" id="1_bwbla"]
+
+[node name="Rock" type="StaticBody2D" unique_id=359115719]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=357652330]
+texture = ExtResource("1_bwbla")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1841905455]
+polygon = PackedVector2Array(-43, -64, 7, -19, 44, -23, 56, 18, 72, 9, 94, 38, -85, 66, -88, -1, -54, -20)

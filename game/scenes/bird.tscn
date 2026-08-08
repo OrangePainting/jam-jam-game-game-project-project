@@ -141,7 +141,7 @@ animations = [{
 size = Vector2(66, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwl2k"]
-size = Vector2(42, 115)
+size = Vector2(42, 148)
 
 [node name="Bird" type="CharacterBody2D" unique_id=1533840289]
 script = ExtResource("1_k4npa")
@@ -155,9 +155,10 @@ position = Vector2(0, 29.5)
 shape = SubResource("RectangleShape2D_cy8uo")
 
 [node name="InteractionDetector" type="Area2D" parent="." unique_id=950097939]
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector" unique_id=406665853]
-position = Vector2(-57, -0.5)
+position = Vector2(-57, 16)
 shape = SubResource("RectangleShape2D_jwl2k")
 
 [connection signal="body_entered" from="InteractionDetector" to="." method="_on_interaction_detector_body_entered"]
