@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dor5w2mi7q7os" path="res://game/scenes/bird.tscn" id="2_jbjdl"]
 [ext_resource type="PackedScene" uid="uid://g7uytigmrbqh" path="res://game/scenes/acorn.tscn" id="4_8buom"]
 [ext_resource type="PackedScene" uid="uid://drqdhufirq0a2" path="res://game/scenes/rock.tscn" id="5_ejk4j"]
+[ext_resource type="PackedScene" uid="uid://cmxdw8fym7wjv" path="res://game/scenes/background.tscn" id="6_l3qal"]
 
 [node name="Main" type="Node2D" unique_id=1933915851]
 script = ExtResource("1_20rwd")
@@ -25,3 +26,5 @@ break_on_name = ""
 
 [node name="Rock" parent="." unique_id=359115719 instance=ExtResource("5_ejk4j")]
 position = Vector2(675, 558)
+
+[node name="Background" parent="." unique_id=1966221470 instance=ExtResource("6_l3qal")]
