@@ -18,7 +18,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	# If the body is named break_on_name
-	print(linear_velocity.length())
 	if broken == false and is_held == false and body.name.match(break_on_name):
 		_break_open()
 
