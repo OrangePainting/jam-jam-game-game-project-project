@@ -28,3 +28,7 @@ sprite_frames = SubResource("SpriteFrames_li6ia")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=406665853]
 shape = SubResource("RectangleShape2D_jwl2k")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2129902884]
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
