@@ -29,5 +29,6 @@ func _break_open():
 	print("%s broke!" % name)
 	broken = true
 	set_deferred("freeze", true)
+	set_deferred("position", position)
 	$AnimatedSprite2D.play("Cracked")
 	
