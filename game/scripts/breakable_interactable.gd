@@ -10,15 +10,10 @@ extends Interactable
 
 var broken: bool = false;
 
-func _ready() -> void:
-	if break_on_name == "":
-		push_error("%s's break_on_name is empty" % name)
-	
-	super()
-
 func _on_body_entered(body: Node) -> void:
 	# If the body is named break_on_name
-	if broken == false and is_held == false and body.name.match(break_on_name):
+	if (not broken and not is_held and not break_on_name.is_empty() 
+	and body.name.match(break_on_name)):
 		_break_open()
 
 func _on_zone_entered(_area: Area2D) -> void: # No functionality
