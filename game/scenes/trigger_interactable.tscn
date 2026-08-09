@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b6rc721qi55ev"]
+
+[ext_resource type="PackedScene" uid="uid://mth47qr6lm0d" path="res://game/scenes/interactable.tscn" id="1_h0b4u"]
+
+[node name="TriggerInteractable" unique_id=467946923 instance=ExtResource("1_h0b4u")]
+collision_layer = 8
+freeze = true
+can_pick_up = false
+
+[node name="ZoneDetection" parent="." index="2" unique_id=843964876]
+collision_layer = 8
