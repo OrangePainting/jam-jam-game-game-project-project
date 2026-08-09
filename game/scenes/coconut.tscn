@@ -48,6 +48,7 @@ radius = 69.02898
 
 [node name="Coconut" unique_id=467946923 instance=ExtResource("1_hwgam")]
 mass = 15.0
+velocity_needed = 300.0
 can_pick_up = false
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]

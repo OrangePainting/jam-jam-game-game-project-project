@@ -19,6 +19,7 @@ animations = [{
 [node name="Nut" unique_id=467946923 instance=ExtResource("1_ksfeo")]
 script = ExtResource("2_6vytj")
 break_on_name = ""
+velocity_needed = 100.0
 can_pick_up = true
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]

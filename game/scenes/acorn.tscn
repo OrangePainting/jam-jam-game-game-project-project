@@ -47,6 +47,7 @@ height = 58.0
 
 [node name="Acorn" unique_id=467946923 instance=ExtResource("1_p24tb")]
 break_on_name = "Rock"
+velocity_needed = 200.0
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
 sprite_frames = SubResource("SpriteFrames_ksfeo")

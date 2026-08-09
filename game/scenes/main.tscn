@@ -27,6 +27,7 @@ position = Vector2(403, 417)
 
 [node name="Peanut" parent="." unique_id=2112127106 instance=ExtResource("9_shkmv")]
 position = Vector2(1470, 521)
+velocity_needed = 10.0
 
 [node name="Acorn" parent="." unique_id=1248292710 instance=ExtResource("4_8buom")]
 position = Vector2(705, 355)
