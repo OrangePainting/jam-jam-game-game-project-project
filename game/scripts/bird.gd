@@ -16,7 +16,7 @@ var held_interactable: Interactable = null
 signal interacted(object: Interactable)
 
 func _ready() -> void:
-	sprite.play()
+	sprite.play("flying_open_beak")
 
 func _physics_process(delta: float) -> void:
 	# move left/right
@@ -75,6 +75,7 @@ func interact() -> void:
 		# Try to pick it up otherwise interact
 		if interactable.can_pick_up:
 			interactable.pick_up(self)
+			sprite.play("flying_closed_beak")
 			held_interactable = interactable
 		else:
 			interactable.interact(self)
@@ -84,6 +85,7 @@ func drop_held_item() -> void:
 	held_interactable.drop()
 	held_interactable = null
 	interacted.emit(null) # null signal means object is dropped
+	sprite.play("flying_open_beak")
 
 func find_interactable() -> Interactable:
 	if len(interactables) == 0: return null
