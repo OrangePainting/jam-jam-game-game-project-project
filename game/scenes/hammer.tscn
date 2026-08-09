@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dy0jv27dnscex"]
+
+[ext_resource type="PackedScene" uid="uid://d34xrtlbg4qn0" path="res://game/scenes/interactable_polygon.tscn" id="1_obx1p"]
+[ext_resource type="Script" uid="uid://dh5mbpxypi2x0" path="res://game/scripts/hammer.gd" id="2_822vd"]
+[ext_resource type="Texture2D" uid="uid://djpsptjj2bgwf" path="res://game/assets/hammer.png" id="3_822vd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_822vd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_822vd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obx1p"]
+size = Vector2(150, 78)
+
+[node name="Hammer" unique_id=467946923 instance=ExtResource("1_obx1p")]
+mass = 10.0
+gravity_scale = 2.0
+script = ExtResource("2_822vd")
+can_pick_up = true
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
+sprite_frames = SubResource("SpriteFrames_822vd")
+
+[node name="InteractionDetection" parent="." index="1" unique_id=2022553380]
+polygon = PackedVector2Array(-46, 25, -46, 34, -70, 34, -70, 27, -62, 27, -63, 19, -70, 15, -71, 2, -67, -15, -58, -29, -47, -35, -55, -26, -56, -13, -51, -1, -47, 1, -6, -4, -6, -8, 0, -12, 6, -10, 16, -8, 64, -15, 70, -12, 70, -1, 65, 4, 55, 0, 6, 5, 5, 12, 1, 14, -3, 12, -4, 6, -46, 10, -49, 14, -54, 16, -54, 25)
+
+[node name="CollisionShape2D" parent="ZoneDetection" parent_id_path=PackedInt32Array(843964876) index="0" unique_id=2004845325]
+shape = SubResource("RectangleShape2D_obx1p")
