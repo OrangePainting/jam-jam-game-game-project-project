@@ -102,6 +102,5 @@ func _on_interaction_detector_area_exited(area: Area2D) -> void:
 	var interactable: Node2D = area.get_node("..")
 	if interactable and interactable is Interactable:
 		if interactable in interactables:
-			return
 			interactables.erase(interactable)
 			print("obj removed")
