@@ -9,3 +9,7 @@ func play_animation() -> void:
 ## External function for receiving signals
 func _on_trigger(_dummy: Node2D) -> void:
 	play_animation()
+
+## External function for receiving signals
+func _on_placed(_a, _b) -> void:
+	play_animation()
