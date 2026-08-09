@@ -152,7 +152,10 @@ size = Vector2(112, 312)
 collision_layer = 2
 collision_mask = 21
 script = ExtResource("1_k4npa")
-speed = 400.0
+speed = 600.0
+gravity = 1400.0
+flap = -1200.0
+terminal_velocity = 800.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=453085113]
 unique_name_in_owner = true
