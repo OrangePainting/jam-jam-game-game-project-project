@@ -154,6 +154,7 @@ collision_mask = 20
 script = ExtResource("1_k4npa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=453085113]
+unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_li6ia")
 animation = &"flying_open_beak"
@@ -167,6 +168,7 @@ position = Vector2(0, 51.5)
 shape = SubResource("RectangleShape2D_k4npa")
 
 [node name="InteractionDetector" type="Area2D" parent="." unique_id=950097939]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 24
 metadata/_edit_group_ = true

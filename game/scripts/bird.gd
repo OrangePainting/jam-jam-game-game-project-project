@@ -7,6 +7,8 @@ class_name Bird extends CharacterBody2D
 var push_force = 40.0 # This represents the player's inertia.
 
 @export var main: Node2D
+@onready var sprite: AnimatedSprite2D = %AnimatedSprite2D
+@onready var interaction_detector: Area2D = %InteractionDetector
 
 var interactables : Array[Interactable] = []
 var held_interactable: Interactable = null
@@ -14,7 +16,7 @@ var held_interactable: Interactable = null
 signal interact
 
 func _ready() -> void:
-	$AnimatedSprite2D.play()
+	sprite.play()
 
 func _physics_process(delta: float) -> void:
 	# move left/right
@@ -34,9 +36,12 @@ func _physics_process(delta: float) -> void:
 
 	
 	if velocity.x > 0: # Face right
-		$AnimatedSprite2D.flip_h = true
+		sprite.flip_h = true
+		interaction_detector.get_child(0).position.x = abs(interaction_detector.get_child(0).position.x)
+		
 	elif velocity.x < 0: # Face left
-		$AnimatedSprite2D.flip_h = false
+		sprite.flip_h = false
+		interaction_detector.get_child(0).position.x = -abs(interaction_detector.get_child(0).position.x)
 	
 	move_and_slide()
 	
@@ -45,6 +50,7 @@ func _physics_process(delta: float) -> void:
 		var c = get_slide_collision(i)
 		if c.get_collider() is Interactable:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"): # E key

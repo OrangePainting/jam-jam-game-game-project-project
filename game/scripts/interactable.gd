@@ -7,7 +7,7 @@ class_name Interactable extends RigidBody2D
 
 @export var can_interact: bool = true
 
-@export var carry_offset := Vector2(-50, 0)
+@export var carry_offset := Vector2(-60, 0)
 
 @onready var zone_detector: Area2D = %ZoneDetection
 @onready var collision_detector: CollisionShape2D = %InteractionDetection
@@ -28,7 +28,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if is_held and is_instance_valid(held_by):
-		global_position = held_by.global_position + carry_offset
+		# This is very janky code, but it works ONLY if the bird is holding the interactable
+		global_position = held_by.global_position + carry_offset * (-1 if held_by.sprite.flip_h else 1)
 
 func pick_up(new_held_by: Node2D) -> bool:
 	if is_held or not can_interact: return false
