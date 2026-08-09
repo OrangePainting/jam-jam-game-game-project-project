@@ -37,11 +37,11 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.x > 0: # Face right
 		sprite.flip_h = true
-		interaction_detector.get_child(0).position.x = abs(interaction_detector.get_child(0).position.x)
+		interaction_detector.position.x = abs(interaction_detector.position.x)
 		
 	elif velocity.x < 0: # Face left
 		sprite.flip_h = false
-		interaction_detector.get_child(0).position.x = -abs(interaction_detector.get_child(0).position.x)
+		interaction_detector.position.x = -abs(interaction_detector.position.x)
 	
 	move_and_slide()
 	
