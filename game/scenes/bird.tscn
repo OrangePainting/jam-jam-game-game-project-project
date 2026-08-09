@@ -158,7 +158,7 @@ speed = 400.0
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_li6ia")
-animation = &"flying_open_beak"
+animation = &"flying_closed_beak"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=997517872]
 position = Vector2(0, -18)
