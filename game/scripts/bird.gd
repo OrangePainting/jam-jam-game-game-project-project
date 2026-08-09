@@ -12,6 +12,7 @@ var push_force = 40.0 # This represents the player's inertia.
 
 var interactables : Array[Interactable] = []
 var held_interactable: Interactable = null
+var targeted_interactable: Interactable = null
 
 signal interacted(object: Interactable)
 
@@ -87,6 +88,19 @@ func drop_held_item() -> void:
 	interacted.emit(null) # null signal means object is dropped
 	sprite.play("flying_open_beak")
 
+func updated_targeted_interactable() -> void:
+	var target := find_interactable()
+	
+	if target and not target.can_pick_up: target = null
+	if target == targeted_interactable: return
+	
+	if is_instance_valid(targeted_interactable):
+		targeted_interactable.set_highlighted(false)
+	
+	targeted_interactable = target
+	if targeted_interactable:
+		targeted_interactable.set_highlighted(true)
+
 func find_interactable() -> Interactable:
 	if len(interactables) == 0: return null
 	
@@ -98,6 +112,7 @@ func _on_interaction_detector_body_entered(body: Node2D) -> void:
 		if body not in interactables:
 			interactables.append(body)
 			print("object added")
+			updated_targeted_interactable()
 
 
 
@@ -106,3 +121,5 @@ func _on_interaction_detector_body_exited(body: Node2D) -> void:
 		if body in interactables:
 			interactables.erase(body)
 			print("object removed")
+			updated_targeted_interactable()
+			
