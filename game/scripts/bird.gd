@@ -60,9 +60,17 @@ func _unhandled_input(event: InputEvent) -> void:
 			interact.emit(null) # null signal means object is dropped
 		else:
 			var interactable := find_interactable()
-			if interactable and interactable.pick_up(self):
+			# Not interactable. Nothing to do
+			if not interactable:
+				return
+			
+			# Try to pick it up otherwise don't
+			if interactable.can_pick_up:
+				interactable.pick_up(self)
 				held_interactable = interactable
-				interact.emit(interactable)
+			else:
+				interactable.interact(self)
+			interact.emit(interactable)
 
 
 func find_interactable() -> Interactable:

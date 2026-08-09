@@ -1,11 +1,14 @@
 class_name Interactable extends RigidBody2D
 
-# Base class for any interactable object, that can be pushed or picked up or any other general interaction
-# For a specific object that has it's own features, just write "extends Interactable" at the top
-# on body entered, and on zone entered are required functions
-# on picked up and on dropped are optional functions to write
+## Base class for any interactable object 
+## that can be pushed or picked up or any other general interaction
+
+## For a specific object that has it's own features, just write "extends Interactable" at the top
+## on body entered, and on zone entered are required functions
+## on picked up and on dropped are optional functions to write
 
 @export var can_interact: bool = true
+@export var can_pick_up: bool = true
 
 @export var carry_offset := Vector2(-60, 0)
 
@@ -14,6 +17,8 @@ class_name Interactable extends RigidBody2D
 
 var is_held: bool = false
 var held_by: Node2D = null
+
+signal interacted_with
 
 # Linear velocity is already built into RigidBody2D, so we can just use
 #   linear_velocity = Vector2.ONE 
@@ -31,14 +36,16 @@ func _physics_process(delta: float) -> void:
 		# This is very janky code, but it works ONLY if the bird is holding the interactable
 		global_position = held_by.global_position + carry_offset * (-1 if held_by.sprite.flip_h else 1)
 
+# Used for picking up 
 func pick_up(new_held_by: Node2D) -> bool:
-	if is_held or not can_interact: return false
+	if is_held or not can_pick_up or not can_interact: return false
 	
 	is_held = true
 	held_by = new_held_by
 	freeze = true
 	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
 	collision_detector.disabled = true
+	interacted_with.emit(new_held_by)
 	_on_picked_up()
 	return true
 
@@ -50,6 +57,13 @@ func drop() -> void:
 	freeze = false
 	collision_detector.disabled = false
 	_on_dropped()
+
+# Generic interact function that happens when can_pick_up is false
+func interact(body: Node2D) -> bool:
+	if not can_interact: return false
+	
+	interacted_with.emit(body)
+	return true
 
 ## Override to react to being picked up
 func _on_picked_up() -> void:
