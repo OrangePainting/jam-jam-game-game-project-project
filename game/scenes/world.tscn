@@ -13,6 +13,18 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rmvmd"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qm8dg"]
+size = Vector2(1472, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hngbq"]
+size = Vector2(2552, 205)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy24a"]
+size = Vector2(2928, 137)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kau46"]
+size = Vector2(275, 74.99994)
+
 [node name="World" type="Node2D" unique_id=643275255]
 
 [node name="Background" parent="." unique_id=1966221470 instance=ExtResource("1_hngbq")]
@@ -52,3 +64,26 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=667184504]
 position = Vector2(0, 984)
 shape = SubResource("WorldBoundaryShape2D_rmvmd")
+
+[node name="House" type="StaticBody2D" parent="." unique_id=1497177311]
+collision_layer = 4
+collision_mask = 0
+
+[node name="UpperFloor" type="CollisionShape2D" parent="House" unique_id=143063813]
+position = Vector2(5024, 1092.5)
+shape = SubResource("RectangleShape2D_qm8dg")
+
+[node name="Roof" type="CollisionShape2D" parent="House" unique_id=2064994727]
+position = Vector2(4484, 102.5)
+shape = SubResource("RectangleShape2D_hngbq")
+
+[node name="RoofOverhang" type="CollisionPolygon2D" parent="House" unique_id=1933770954]
+polygon = PackedVector2Array(3208, 0, 3208, 205, 3133, 205)
+
+[node name="Floor" type="CollisionShape2D" parent="House" unique_id=1379306175]
+position = Vector2(4296, 2091.5)
+shape = SubResource("RectangleShape2D_fy24a")
+
+[node name="Step" type="CollisionShape2D" parent="House" unique_id=1332839414]
+position = Vector2(2694.5, 2122.5)
+shape = SubResource("RectangleShape2D_kau46")

@@ -33,10 +33,10 @@ position = Vector2(702, 1868)
 position = Vector2(1718, 1709)
 
 [node name="Coconut" parent="." unique_id=57514100 instance=ExtResource("9_rmvmd")]
-position = Vector2(2600, 1601)
+position = Vector2(4723, 853)
 break_on_name = "Hammer"
 
 [node name="Hammer" parent="." unique_id=730389216 instance=ExtResource("10_shkmv")]
-position = Vector2(2976, 1670)
+position = Vector2(4557, 1846)
 
 [connection signal="item_placed" from="Guy" to="Peanut" method="_on_place_interactable_item_placed"]
