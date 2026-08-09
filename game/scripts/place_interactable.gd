@@ -23,18 +23,24 @@ func interact(interactor: Node2D) -> bool:
 	return true
 
 func interact_with_held(interactor: Node2D, held_item: Interactable) -> bool:
-	if not can_interact: return false
+	if not can_interact:
+		AudioController.play_man_decline_nut_sound() # idk if this will break other parts of the game
+		return false
 	print(held_item.name)
 	
-	if not opened and held_item.name.match(key_item_name):
-		opened = true
-		item_placed.emit(interactor, held_item)
-		return true
+	if not opened:
+		if held_item.name.match(key_item_name):
+			opened = true
+			item_placed.emit(interactor, held_item)
+			AudioController.play_man_accept_nut_sound() # idk if this will break other parts of the game
+			return true
+		else:
+			AudioController.play_man_decline_nut_sound() # idk if this will break other parts of the game
 	
 	return false
 
 func _on_body_entered(_body: Node) -> void: # No functionality
-	pass
+	super._on_body_entered(_body) # MUST ADD THIS AT EVERY ON BODY ENTERED FUNCTION
 
 func _on_zone_entered(_area: Area2D) -> void: # No functionality
 	pass
