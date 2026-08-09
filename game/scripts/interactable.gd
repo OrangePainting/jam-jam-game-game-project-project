@@ -13,7 +13,7 @@ class_name Interactable extends RigidBody2D
 @export var carry_offset := Vector2(-60, 0)
 
 @onready var zone_detector: Area2D = %ZoneDetection
-@onready var collision_detector: CollisionShape2D = %InteractionDetection
+@onready var collision_detector: Node2D = %InteractionDetection
 
 var is_held: bool = false
 var held_by: Node2D = null
@@ -28,6 +28,9 @@ signal interacted_with(interactor: Node2D)
 func _ready() -> void:
 	contact_monitor = true
 	max_contacts_reported = 4
+	
+	if collision_detector is not CollisionShape2D and collision_detector is not CollisionPolygon2D:
+		push_error("collision_detector on %s is not a collision shape or polygon" % name)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://x47mcvtsxm8c"]
+
+[ext_resource type="PackedScene" uid="uid://g7uytigmrbqh" path="res://game/scenes/nut.tscn" id="1_hwgam"]
+[ext_resource type="Texture2D" uid="uid://gi0c3h6cmv8n" path="res://game/assets/coconut_sprite_sheet.png" id="2_a3sby"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me7p6"]
+atlas = ExtResource("2_a3sby")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpjhj"]
+atlas = ExtResource("2_a3sby")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew2cy"]
+atlas = ExtResource("2_a3sby")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3sby"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me7p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpjhj")
+}],
+"loop": 0,
+"name": &"Cracked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew2cy")
+}],
+"loop": 1,
+"name": &"Uncracked",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pvuun"]
+radius = 56.0803
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qm8dg"]
+size = Vector2(104, 42)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o64dn"]
+radius = 69.02898
+
+[node name="Coconut" unique_id=467946923 instance=ExtResource("1_hwgam")]
+mass = 15.0
+velocity_needed = 300.0
+can_pick_up = false
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
+sprite_frames = SubResource("SpriteFrames_a3sby")
+
+[node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
+position = Vector2(-3, 8)
+shape = SubResource("CircleShape2D_pvuun")
+
+[node name="Anti Roll Collider" type="CollisionShape2D" parent="." index="2" unique_id=631637898]
+position = Vector2(-2, 42)
+shape = SubResource("RectangleShape2D_qm8dg")
+
+[node name="ZoneDetection" parent="." index="3" unique_id=843964876]
+position = Vector2(-3, 7)
+
+[node name="CollisionShape2D" parent="ZoneDetection" index="0" unique_id=2004845325]
+shape = SubResource("CircleShape2D_o64dn")
