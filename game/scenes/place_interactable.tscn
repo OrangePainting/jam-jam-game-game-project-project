@@ -8,4 +8,4 @@ script = ExtResource("2_cc8yq")
 key_item_name = ""
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
-modulate = Color(0.6482204, 2.1779165e-06, 6.256998e-07, 1)
+z_index = -5
