@@ -2,9 +2,9 @@ class_name Bird extends CharacterBody2D
 
 @export var speed: float = 200.0
 @export var gravity: float = 900.0
-@export var flap: float = -800.0 #upward force for flapping
+@export var flap: float = -550.0 #upward force for flapping
 @export var terminal_velocity: float = 400.0
-var push_force = 40.0 # This represents the player's inertia.
+var push_force = 80.0 # This represents the player's inertia.
 
 @export var main: Node2D
 @onready var sprite: AnimatedSprite2D = %AnimatedSprite2D
@@ -12,6 +12,7 @@ var push_force = 40.0 # This represents the player's inertia.
 
 var interactables : Array[Interactable] = []
 var held_interactable: Interactable = null
+var max_push_speed: float = 120.0
 
 signal interacted(object: Interactable)
 
@@ -23,17 +24,13 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	velocity.x = direction * speed
 	
-	# Add the gravity.
+	# Add the gravity
 	velocity.y += gravity * delta
 	velocity.y = min(velocity.y, terminal_velocity)
 	
 	# flap
 	if Input.is_action_just_pressed("flap"):
 		velocity.y = flap
-	
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
 	
 	if velocity.x > 0: # Face right
 		sprite.flip_h = true
@@ -45,11 +42,15 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	# after calling move_and_slide()
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
-		if c.get_collider() is Interactable:
-			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+		var collider = c.get_collider()
+		
+		if collider is Interactable and collider is RigidBody2D:
+			if abs(c.get_normal().x) > 0.5 and direction != 0: # if is moving
+					if abs(collider.linear_velocity.x) < max_push_speed:
+						var push_direction = Vector2.RIGHT * sign(direction)
+						collider.apply_central_impulse(push_direction * push_force * delta * 60.0)
 
 
 func _unhandled_input(event: InputEvent) -> void:
