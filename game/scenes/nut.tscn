@@ -23,4 +23,4 @@ can_pick_up = true
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
 sprite_frames = SubResource("SpriteFrames_6vytj")
-animation = &"Cracked"
+animation = &"Uncracked"

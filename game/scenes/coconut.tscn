@@ -52,7 +52,6 @@ can_pick_up = false
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
 sprite_frames = SubResource("SpriteFrames_a3sby")
-animation = &"Uncracked"
 
 [node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
 position = Vector2(-3, 8)
