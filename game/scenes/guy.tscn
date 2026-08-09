@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://caqljadb2t72n"]
+
+[ext_resource type="PackedScene" uid="uid://b8f0knv2eo1n8" path="res://game/scenes/place_interactable.tscn" id="1_87sp0"]
+[ext_resource type="Texture2D" uid="uid://bmngwd887fc45" path="res://game/assets/temp_guy.png" id="2_degwf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v2boo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_degwf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_degwf"]
+size = Vector2(355, 717)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irgpq"]
+size = Vector2(353, 715)
+
+[node name="Guy" unique_id=467946923 instance=ExtResource("1_87sp0")]
+key_item_name = "Peanut"
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_v2boo")
+
+[node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
+position = Vector2(-3.5, 3.5)
+shape = SubResource("RectangleShape2D_degwf")
+
+[node name="CollisionShape2D" parent="ZoneDetection" parent_id_path=PackedInt32Array(843964876) index="0" unique_id=2004845325]
+position = Vector2(-3.5, 1.5)
+shape = SubResource("RectangleShape2D_irgpq")
