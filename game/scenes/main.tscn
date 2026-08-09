@@ -48,4 +48,4 @@ position = Vector2(629, 419)
 position = Vector2(477, 187)
 
 [connection signal="interacted_with" from="TriggerInteractable" to="Test Animation" method="_on_trigger"]
-[connection signal="item_placed" from="PlaceInteractable" to="Test Animation" method="_on_placed"]
+[connection signal="item_placed" from="PlaceInteractable" to="Peanut" method="_on_place_interactable_item_placed"]

@@ -26,4 +26,7 @@ func _break_open():
 	set_deferred("freeze", true)
 	set_deferred("position", position)
 	$AnimatedSprite2D.play("Cracked")
-	
+
+func _on_place_interactable_item_placed(interactor: Node2D, item: Interactable) -> void:
+	if not broken:
+		_break_open()
