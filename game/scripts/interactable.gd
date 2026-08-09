@@ -77,7 +77,11 @@ func _on_dropped() -> void:
 	pass
 
 func _on_body_entered(_body: Node) -> void: # touches another body
-	push_error("Interactable._on_body_entered() not implemented in %s. Define it!" % name)
+	# either grass (outside) or concrete (inside)
+	if _body.is_in_group("grass"):
+		AudioController.play_item_dropped_on_grass_sound()
+	if _body.is_in_group("concrete"):
+		AudioController.play_item_dropped_on_generic_surface_sound()
 
 
 func _on_zone_entered(_area: Area2D) -> void: # touches a zone

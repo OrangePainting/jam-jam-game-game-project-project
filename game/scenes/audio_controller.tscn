@@ -86,48 +86,57 @@ hammer_cracking_incremental_sounds = Array[AudioStream]([ExtResource("2_skitk"),
 nut_cracking_on_rock_incremental_sounds = Array[AudioStream]([ExtResource("5_odjol"), ExtResource("6_vefu3"), ExtResource("7_0b72u")])
 demolition_crane_sounds = Array[AudioStream]([ExtResource("8_1d02t"), ExtResource("9_oeaco")])
 
-[node name="MainMusic" type="AudioStreamPlayer2D" parent="." unique_id=748237994]
+[node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1411756606]
 
-[node name="CrowCaw" type="AudioStreamPlayer2D" parent="." unique_id=1935214405]
+[node name="CrowCaw" type="AudioStreamPlayer" parent="." unique_id=824346822]
 stream = SubResource("AudioStreamRandomizer_li6ia")
+max_polyphony = 4
 
-[node name="HammerCrackingNut" type="AudioStreamPlayer2D" parent="." unique_id=443508086]
+[node name="HammerCrackingNut" type="AudioStreamPlayer" parent="." unique_id=279766307]
+max_polyphony = 4
 
-[node name="ItemDroppedOnGrass" type="AudioStreamPlayer2D" parent="." unique_id=1114138733]
+[node name="ItemDroppedOnGrass" type="AudioStreamPlayer" parent="." unique_id=2065397250]
 stream = ExtResource("9_13r1d")
+max_polyphony = 4
 
-[node name="ItemDroppedGenericSurface" type="AudioStreamPlayer2D" parent="." unique_id=531202178]
+[node name="ItemDroppedGenericSurface" type="AudioStreamPlayer" parent="." unique_id=1280506254]
 stream = SubResource("AudioStreamRandomizer_fic7a")
+max_polyphony = 4
 
-[node name="KeypadInteraction" type="AudioStreamPlayer2D" parent="." unique_id=1550121705]
+[node name="KeypadInteraction" type="AudioStreamPlayer" parent="." unique_id=1058993384]
 stream = SubResource("AudioStreamRandomizer_2mguh")
+max_polyphony = 4
 
-[node name="ManAcceptingNut" type="AudioStreamPlayer2D" parent="." unique_id=1899880225]
+[node name="ManAcceptingNut" type="AudioStreamPlayer" parent="." unique_id=1994067506]
 stream = ExtResource("15_ey5cs")
+max_polyphony = 4
 
-[node name="ManDecliningNut" type="AudioStreamPlayer2D" parent="." unique_id=1562396580]
+[node name="ManDecliningNut" type="AudioStreamPlayer" parent="." unique_id=408923182]
 stream = SubResource("AudioStreamRandomizer_5xliv")
 
-[node name="NutCrackingOnRock" type="AudioStreamPlayer2D" parent="." unique_id=1904955296]
+[node name="NutCrackingOnRock" type="AudioStreamPlayer" parent="." unique_id=1389571781]
+max_polyphony = 4
 
-[node name="NutOnRock" type="AudioStreamPlayer2D" parent="." unique_id=2087522545]
+[node name="NutOnRock" type="AudioStreamPlayer" parent="." unique_id=294062143]
 stream = SubResource("AudioStreamRandomizer_sv5f4")
+max_polyphony = 4
 
-[node name="WingFlap" type="AudioStreamPlayer2D" parent="." unique_id=684650863]
+[node name="WingFlap" type="AudioStreamPlayer" parent="." unique_id=1517662829]
 stream = SubResource("AudioStreamRandomizer_ccnio")
+max_polyphony = 4
 
-[node name="HydraulicPress" type="AudioStreamPlayer2D" parent="." unique_id=241385095]
+[node name="HydraulicPress" type="AudioStreamPlayer" parent="." unique_id=2041044907]
 stream = ExtResource("33_5inay")
 
-[node name="NutStatue" type="AudioStreamPlayer2D" parent="." unique_id=1660721971]
+[node name="NutStatue" type="AudioStreamPlayer" parent="." unique_id=331541776]
 stream = ExtResource("34_crmek")
 
-[node name="SafeBox" type="AudioStreamPlayer2D" parent="." unique_id=1266256523]
+[node name="SafeBox" type="AudioStreamPlayer" parent="." unique_id=675319019]
 stream = ExtResource("35_hpkcp")
 
-[node name="VaultDoor" type="AudioStreamPlayer2D" parent="." unique_id=1740262426]
+[node name="VaultDoor" type="AudioStreamPlayer" parent="." unique_id=1430992624]
 stream = ExtResource("36_kk87r")
 
-[node name="DemolitionCrane" type="AudioStreamPlayer2D" parent="." unique_id=827513452]
+[node name="DemolitionCrane" type="AudioStreamPlayer" parent="." unique_id=1278573590]
 
 [connection signal="finished" from="DemolitionCrane" to="." method="_on_demolition_crane_finished"]

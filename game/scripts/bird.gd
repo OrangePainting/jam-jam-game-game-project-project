@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	# flap
 	if Input.is_action_just_pressed("flap"):
 		velocity.y = flap
+		AudioController.play_wing_flap_sound()
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -59,6 +60,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func interact() -> void:
 	var interactable := find_interactable()
+
 	if held_interactable:
 		# If we can place it down, try to place it down
 		if interactable is PlaceInteractable:
@@ -70,6 +72,7 @@ func interact() -> void:
 	else:
 		# Not interactable. Nothing to do
 		if not interactable:
+			AudioController.play_crow_caw()
 			return
 		
 		# Try to pick it up otherwise interact

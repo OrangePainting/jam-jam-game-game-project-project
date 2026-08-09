@@ -58,6 +58,9 @@ func play_nut_cracking_on_rock_sound(index: int = 0) -> void:
 	$NutCrackingOnRock.stream = nut_cracking_on_rock_incremental_sounds[index % len(nut_cracking_on_rock_incremental_sounds)]
 	$NutCrackingOnRock.play()
 
+func play_nut_on_rock_sound() -> void:
+	if not mute: $NutOnRock.play()
+
 func play_wing_flap_sound() -> void:
 	if not mute: $WingFlap.play()
 

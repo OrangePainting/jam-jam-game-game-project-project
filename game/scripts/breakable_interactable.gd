@@ -2,16 +2,21 @@ class_name BreakableInteractable
 extends Interactable
 
 ## Can be picked up and breaks on contact with objects named break_on_name
-## 
+
 ## Can be picked up and dropped inherited from Interactable 
 ## Breaks on contact with objects named break_on_name
 
 @export var break_on_name: String = ""
 @export var velocity_needed: float = 10
+@export var crack_sound: String = ""
+@export var crack_index: int = 0
+@export var no_crack_sound_fail: String = ""
 
 var broken: bool = false;
 
 func _on_body_entered(body: Node) -> void:
+	super._on_body_entered(body) # MUST ADD THIS AT EVERY ON BODY ENTERED FUNCTION
+	
 	# If the body is named break_on_name
 	if (not broken and not is_held and not break_on_name.is_empty() 
 	and body.name.match(break_on_name)):
@@ -33,6 +38,9 @@ func _try_break_open(body: Node) -> bool:
 		return true
 	else:
 		pass # Something happens to show it wasn't fast enough
+	
+	if AudioController.has_method(no_crack_sound_fail):
+		AudioController.call(no_crack_sound_fail)
 	return false
 
 # Controls the breaking open animation
@@ -42,6 +50,8 @@ func _break_open():
 	set_deferred("freeze", true)
 	set_deferred("position", position)
 	$AnimatedSprite2D.play("Cracked")
+	if AudioController.has_method(crack_sound):
+		AudioController.call(crack_sound, crack_index)
 
 func _on_place_interactable_item_placed(interactor: Node2D, item: Interactable) -> void:
 	if not broken:

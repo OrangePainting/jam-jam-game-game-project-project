@@ -4,7 +4,7 @@
 
 [node name="World" type="Node2D" unique_id=643275255]
 
-[node name="Ground" type="StaticBody2D" parent="." unique_id=1580414199]
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1580414199 groups=["grass"]]
 position = Vector2(0, 600)
 collision_layer = 4
 collision_mask = 0
