@@ -37,10 +37,10 @@ func _try_break_open(body: Node) -> bool:
 		_break_open()
 		return true
 	else:
-		pass # Something happens to show it wasn't fast enough
+		if AudioController.has_method(no_crack_sound_fail):
+			AudioController.call(no_crack_sound_fail)
 	
-	if AudioController.has_method(no_crack_sound_fail):
-		AudioController.call(no_crack_sound_fail)
+	
 	return false
 
 # Controls the breaking open animation
