@@ -1,13 +1,54 @@
 [gd_scene format=3 uid="uid://i0ykj17psmms"]
 
+[ext_resource type="PackedScene" uid="uid://cmxdw8fym7wjv" path="res://game/scenes/background.tscn" id="1_hngbq"]
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_li6ia"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hngbq"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6pf46"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rmvmd"]
+normal = Vector2(-1, 0)
 
 [node name="World" type="Node2D" unique_id=643275255]
 
+[node name="Background" parent="." unique_id=1966221470 instance=ExtResource("1_hngbq")]
+
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1580414199]
-position = Vector2(0, 600)
+position = Vector2(0, 2112)
 collision_layer = 4
 collision_mask = 0
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=982164524]
 shape = SubResource("WorldBoundaryShape2D_li6ia")
+
+[node name="Sky" type="StaticBody2D" parent="." unique_id=783300018]
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sky" unique_id=1741684268]
+shape = SubResource("WorldBoundaryShape2D_hngbq")
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=323953818]
+position = Vector2(0, 1912)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=395787050]
+shape = SubResource("WorldBoundaryShape2D_6pf46")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=76304001]
+position = Vector2(5760, 600)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=667184504]
+position = Vector2(0, 984)
+shape = SubResource("WorldBoundaryShape2D_rmvmd")
