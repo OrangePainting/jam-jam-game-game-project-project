@@ -8,7 +8,7 @@ class_name Interactable extends RigidBody2D
 ## on picked up and on dropped are optional functions to write
 
 @export var can_interact: bool = true
-@export var can_pick_up: bool = true
+@export var can_pick_up: bool = false
 
 @export var carry_offset := Vector2(-60, 0)
 
