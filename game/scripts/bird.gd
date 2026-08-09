@@ -13,7 +13,7 @@ var push_force = 40.0 # This represents the player's inertia.
 var interactables : Array[Interactable] = []
 var held_interactable: Interactable = null
 
-signal interact
+signal interacted(object: Interactable)
 
 func _ready() -> void:
 	sprite.play()
@@ -54,24 +54,36 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"): # E key
-		if held_interactable:
-			held_interactable.drop()
-			held_interactable = null
-			interact.emit(null) # null signal means object is dropped
-		else:
-			var interactable := find_interactable()
-			# Not interactable. Nothing to do
-			if not interactable:
-				return
-			
-			# Try to pick it up otherwise don't
-			if interactable.can_pick_up:
-				interactable.pick_up(self)
-				held_interactable = interactable
-			else:
-				interactable.interact(self)
-			interact.emit(interactable)
+		interact()
 
+
+func interact() -> void:
+	var interactable := find_interactable()
+	if held_interactable:
+		# If we can place it down, try to place it down
+		if interactable is PlaceInteractable:
+			var placed = interactable.interact_with_held(self, held_interactable)
+		
+		# Always drop the item no matter what.
+		# If it were placed somewhere, something will happen to it.
+		drop_held_item()
+	else:
+		# Not interactable. Nothing to do
+		if not interactable:
+			return
+		
+		# Try to pick it up otherwise interact
+		if interactable.can_pick_up:
+			interactable.pick_up(self)
+			held_interactable = interactable
+		else:
+			interactable.interact(self)
+		interacted.emit(interactable)
+
+func drop_held_item() -> void:
+	held_interactable.drop()
+	held_interactable = null
+	interacted.emit(null) # null signal means object is dropped
 
 func find_interactable() -> Interactable:
 	if len(interactables) == 0: return null

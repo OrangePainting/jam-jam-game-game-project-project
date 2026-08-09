@@ -8,7 +8,7 @@ class_name Interactable extends RigidBody2D
 ## on picked up and on dropped are optional functions to write
 
 @export var can_interact: bool = true
-@export var can_pick_up: bool = true
+@export var can_pick_up: bool = false
 
 @export var carry_offset := Vector2(-60, 0)
 
@@ -18,7 +18,7 @@ class_name Interactable extends RigidBody2D
 var is_held: bool = false
 var held_by: Node2D = null
 
-signal interacted_with
+signal interacted_with(interactor: Node2D)
 
 # Linear velocity is already built into RigidBody2D, so we can just use
 #   linear_velocity = Vector2.ONE 
@@ -31,7 +31,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_held and is_instance_valid(held_by):
 		# This is very janky code, but it works ONLY if the bird is holding the interactable
 		global_position = held_by.global_position + carry_offset * (-1 if held_by.sprite.flip_h else 1)
@@ -59,10 +59,10 @@ func drop() -> void:
 	_on_dropped()
 
 # Generic interact function that happens when can_pick_up is false
-func interact(body: Node2D) -> bool:
+func interact(interactor: Node2D) -> bool:
 	if not can_interact: return false
 	
-	interacted_with.emit(body)
+	interacted_with.emit(interactor)
 	return true
 
 ## Override to react to being picked up
@@ -73,13 +73,11 @@ func _on_picked_up() -> void:
 func _on_dropped() -> void:
 	pass
 
-func _on_body_entered(body: Node) -> void: # touches another body
-	if body is Bird:
-		pass
+func _on_body_entered(_body: Node) -> void: # touches another body
 	push_error("Interactable._on_body_entered() not implemented in %s. Define it!" % name)
 
 
-func _on_zone_entered(area: Area2D) -> void: # touches a zone
+func _on_zone_entered(_area: Area2D) -> void: # touches a zone
 	push_error("Interactable._on_zone_entered() not implemented in %s. Define it!" % name)
 
 

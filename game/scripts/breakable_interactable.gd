@@ -10,18 +10,13 @@ extends Interactable
 
 var broken: bool = false;
 
-func _ready() -> void:
-	if break_on_name == "":
-		push_error("%s's break_on_name is empty" % name)
-	
-	super()
-
 func _on_body_entered(body: Node) -> void:
 	# If the body is named break_on_name
-	if broken == false and is_held == false and body.name.match(break_on_name):
+	if (not broken and not is_held and not break_on_name.is_empty() 
+	and body.name.match(break_on_name)):
 		_break_open()
 
-func _on_zone_entered(area: Area2D) -> void: # No functionality
+func _on_zone_entered(_area: Area2D) -> void: # No functionality
 	pass
 
 # Controls the breaking open animation
@@ -31,4 +26,7 @@ func _break_open():
 	set_deferred("freeze", true)
 	set_deferred("position", position)
 	$AnimatedSprite2D.play("Cracked")
-	
+
+func _on_place_interactable_item_placed(interactor: Node2D, item: Interactable) -> void:
+	if not broken:
+		_break_open()

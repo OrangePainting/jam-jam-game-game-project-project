@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://g7uytigmrbqh"]
+
+[ext_resource type="PackedScene" uid="uid://mth47qr6lm0d" path="res://game/scenes/interactable.tscn" id="1_ksfeo"]
+[ext_resource type="Script" uid="uid://d4fa4b1wpur8i" path="res://game/scripts/breakable_interactable.gd" id="2_6vytj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6vytj"]
+animations = [{
+"frames": [],
+"loop": 0,
+"name": &"Cracked",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"Uncracked",
+"speed": 5.0
+}]
+
+[node name="Nut" unique_id=467946923 instance=ExtResource("1_ksfeo")]
+script = ExtResource("2_6vytj")
+break_on_name = ""
+can_pick_up = true
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
+sprite_frames = SubResource("SpriteFrames_6vytj")
+animation = &"Cracked"

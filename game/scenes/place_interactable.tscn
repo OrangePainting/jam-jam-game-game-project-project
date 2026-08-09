@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b8f0knv2eo1n8"]
+
+[ext_resource type="PackedScene" uid="uid://b6rc721qi55ev" path="res://game/scenes/trigger_interactable.tscn" id="1_lybmt"]
+[ext_resource type="Script" uid="uid://lhf2ifqr3re0" path="res://game/scripts/place_interactable.gd" id="2_cc8yq"]
+
+[node name="PlaceInteractable" unique_id=467946923 instance=ExtResource("1_lybmt")]
+script = ExtResource("2_cc8yq")
+key_item_name = ""
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
+modulate = Color(0.6482204, 2.1779165e-06, 6.256998e-07, 1)
