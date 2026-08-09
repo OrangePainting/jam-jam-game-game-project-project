@@ -90,17 +90,18 @@ func find_interactable() -> Interactable:
 	
 	return interactables[-1]
 
+func _on_interaction_detector_area_entered(area: Area2D) -> void:
+	var interactable: Node2D = area.get_node("..")
+	if interactable and interactable is Interactable:
+		if interactable not in interactables:
+			interactables.append(interactable)
+			print("obj added")
 
-func _on_interaction_detector_body_entered(body: Node2D) -> void:
-	if body is Interactable:
-		if body not in interactables:
-			interactables.append(body)
-			print("object added")
 
-
-
-func _on_interaction_detector_body_exited(body: Node2D) -> void:
-	if body is Interactable:
-		if body in interactables:
-			interactables.erase(body)
-			print("object removed")
+func _on_interaction_detector_area_exited(area: Area2D) -> void:
+	var interactable: Node2D = area.get_node("..")
+	if interactable and interactable is Interactable:
+		if interactable in interactables:
+			return
+			interactables.erase(interactable)
+			print("obj removed")
