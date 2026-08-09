@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dkuyd28c24vjw"]
+
+[ext_resource type="Script" uid="uid://cpayt6ygs6god" path="res://game/scripts/tutorial_popup.gd" id="1_lkpux"]
+
+[node name="TutorialPopup" type="Control" unique_id=1812180768]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lkpux")
+
+[node name="Label" type="Label" parent="." unique_id=989036065]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 96.0
+offset_right = 345.0
+offset_bottom = 197.0
+text = "Find a way to crack open these nuts!
+
+Arrow Keys - Move
+E - Interact"

@@ -12,11 +12,12 @@ var push_force = 40.0 # This represents the player's inertia.
 
 var interactables : Array[Interactable] = []
 var held_interactable: Interactable = null
+var targeted_interactable: Interactable = null
 
 signal interacted(object: Interactable)
 
 func _ready() -> void:
-	sprite.play()
+	sprite.play("flying_open_beak")
 
 func _physics_process(delta: float) -> void:
 	# move left/right
@@ -75,6 +76,7 @@ func interact() -> void:
 		# Try to pick it up otherwise interact
 		if interactable.can_pick_up:
 			interactable.pick_up(self)
+			sprite.play("flying_closed_beak")
 			held_interactable = interactable
 		else:
 			interactable.interact(self)
@@ -84,6 +86,20 @@ func drop_held_item() -> void:
 	held_interactable.drop()
 	held_interactable = null
 	interacted.emit(null) # null signal means object is dropped
+	sprite.play("flying_open_beak")
+
+func updated_targeted_interactable() -> void:
+	var target := find_interactable()
+	
+	if target and not target.can_pick_up: target = null
+	if target == targeted_interactable: return
+	
+	if is_instance_valid(targeted_interactable):
+		targeted_interactable.set_highlighted(false)
+	
+	targeted_interactable = target
+	if targeted_interactable:
+		targeted_interactable.set_highlighted(true)
 
 func find_interactable() -> Interactable:
 	if len(interactables) == 0: return null
@@ -96,6 +112,8 @@ func _on_interaction_detector_area_entered(area: Area2D) -> void:
 		if interactable not in interactables:
 			interactables.append(interactable)
 			print("obj added")
+			updated_targeted_interactable()
+
 
 
 func _on_interaction_detector_area_exited(area: Area2D) -> void:
@@ -104,3 +122,4 @@ func _on_interaction_detector_area_exited(area: Area2D) -> void:
 		if interactable in interactables:
 			interactables.erase(interactable)
 			print("obj removed")
+			updated_targeted_interactable()
