@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b0iiqycf7ppin"]
+
+[ext_resource type="Script" uid="uid://bk62t2h4ld220" path="res://game/scripts/animated_object.gd" id="1_fbiu4"]
+[ext_resource type="Texture2D" uid="uid://buqjft5cgjgjx" path="res://game/assets/icon.svg" id="1_g218d"]
+
+[sub_resource type="Animation" id="Animation_g218d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5vylu"]
+resource_name = "test_anim"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkrx2"]
+_data = {
+&"RESET": SubResource("Animation_g218d"),
+&"test_anim": SubResource("Animation_5vylu")
+}
+
+[node name="Test Animation" type="Sprite2D" unique_id=1288354176]
+texture = ExtResource("1_g218d")
+script = ExtResource("1_fbiu4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=250615726]
+libraries/ = SubResource("AnimationLibrary_dkrx2")
