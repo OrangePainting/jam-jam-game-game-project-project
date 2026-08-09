@@ -59,10 +59,10 @@ func drop() -> void:
 	_on_dropped()
 
 # Generic interact function that happens when can_pick_up is false
-func interact(body: Node2D) -> bool:
+func interact(interactor: Node2D) -> bool:
 	if not can_interact: return false
 	
-	interacted_with.emit(body)
+	interacted_with.emit(interactor)
 	return true
 
 ## Override to react to being picked up
