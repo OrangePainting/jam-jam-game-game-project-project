@@ -63,12 +63,10 @@ func interact() -> void:
 		# If we can place it down, try to place it down
 		if interactable is PlaceInteractable:
 			var placed = interactable.interact_with_held(self, held_interactable)
-			if placed:
-				drop_held_item()
-			else:
-				interacted.emit(interactable)
-		else:
-			drop_held_item()
+		
+		# Always drop the item no matter what.
+		# If it were placed somewhere, something will happen to it.
+		drop_held_item()
 	else:
 		# Not interactable. Nothing to do
 		if not interactable:
