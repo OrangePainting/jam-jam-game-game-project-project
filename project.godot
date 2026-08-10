@@ -50,6 +50,7 @@ folder_colors={
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true
+theme/default_theme_scale=3.0
 theme/custom="uid://uapranake51l"
 
 [input]

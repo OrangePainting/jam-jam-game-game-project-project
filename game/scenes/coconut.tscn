@@ -52,6 +52,7 @@ mass = 20.0
 break_on_name = "Hammer"
 velocity_needed = 300.0
 crack_sound = "play_hammer_cracking_nut_sound"
+crack_index = 2
 drop_on_break = ExtResource("2_me7p6")
 can_pick_up = false
 

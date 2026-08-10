@@ -15,6 +15,7 @@ extends Interactable
 @export var drop_on_break: PackedScene = null
 
 signal interactable_eaten()
+signal broken_open()
 
 var broken: bool = false;
 
@@ -57,6 +58,7 @@ func _break_open():
 	set_deferred("freeze", true)
 	set_deferred("position", position)
 	$AnimatedSprite2D.play("Cracked")
+	broken_open.emit()
 	
 	if AudioController.has_method(crack_sound):
 		AudioController.call(crack_sound, crack_index)

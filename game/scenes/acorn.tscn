@@ -51,6 +51,7 @@ gravity_scale = 2.0
 break_on_name = "Rock"
 velocity_needed = 200.0
 crack_sound = "play_nut_cracking_on_rock_sound"
+crack_index = 2
 no_crack_sound_fail = "play_nut_on_rock_sound"
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
