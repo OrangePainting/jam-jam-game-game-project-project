@@ -38,7 +38,9 @@ z_index = -1
 position = Vector2(400, 1930)
 
 [node name="Peanut" parent="." unique_id=2112127106 instance=ExtResource("9_shkmv")]
-position = Vector2(1467, 2034)
+position = Vector2(2148, 2044)
+crack_sound = "play_nut_cracking_on_rock_sound"
+crack_index = 1
 
 [node name="Guy" parent="." unique_id=2083490357 instance=ExtResource("9_j51q3")]
 z_index = -1
@@ -102,6 +104,7 @@ script = ExtResource("19_vief3")
 pause_menu_packed = ExtResource("20_0tmyv")
 
 [connection signal="item_placed" from="Guy" to="Peanut" method="_on_place_interactable_item_placed"]
+[connection signal="broken_open" from="Coconut" to="Hammer" method="_on_nut_broken_open"]
 [connection signal="interacted_with" from="HydraulicPressControls" to="Hydraulic_Press" method="_on_hydraulic_press_controls_interacted_with"]
 [connection signal="end_game" from="Crane" to="." method="_on_crane_end_game"]
 [connection signal="item_placed" from="Crane" to="BigNut" method="_on_place_interactable_item_placed"]

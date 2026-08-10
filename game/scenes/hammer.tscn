@@ -22,6 +22,7 @@ size = Vector2(345, 202)
 mass = 10.0
 gravity_scale = 2.0
 script = ExtResource("2_822vd")
+break_on_use = true
 can_pick_up = true
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
