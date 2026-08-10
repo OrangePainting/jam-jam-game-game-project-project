@@ -48,6 +48,8 @@ func interact_with_held(interactor: Node2D, held_item: Interactable) -> bool:
 			if delete_on_key_used:
 				held_item.queue_free()
 			
+			leave_after_delay()
+			
 			return true
 		else:
 			if AudioController.has_method(decline_sound):
@@ -59,3 +61,8 @@ func _on_body_entered(_body: Node) -> void: # No functionality
 
 func _on_zone_entered(_area: Area2D) -> void: # No functionality
 	pass
+
+
+func leave_after_delay() -> void:
+	await get_tree().create_timer(3.0).timeout
+	$AnimatedSprite2D.frame = 1
