@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://j6mo1nig8xg3"]
 
-[ext_resource type="PackedScene" path="res://examples/scenes/credits/scrolling_credits.tscn" id="1_v3xly"]
-[ext_resource type="Script" path="res://examples/scenes/end_credits/end_credits.gd" id="2_53wi1"]
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_kwcwf"]
-[ext_resource type="Script" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="4_ujlg1"]
+[ext_resource type="PackedScene" uid="uid://c8e80nbex8vy3" path="res://examples/scenes/credits/scrolling_credits.tscn" id="1_v3xly"]
+[ext_resource type="Script" uid="uid://cbgt5ac8si5ti" path="res://examples/scenes/end_credits/end_credits.gd" id="2_53wi1"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_kwcwf"]
+[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="4_ujlg1"]
 
 [node name="EndCredits" unique_id=613298766 instance=ExtResource("1_v3xly")]
 script = ExtResource("2_53wi1")
@@ -30,6 +30,60 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
+
+[node name="ScrollContainer" parent="." index="3" unique_id=1039720129]
+scroll_vertical = 11
+
+[node name="HeaderSpace" parent="ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(2067921385) index="0" unique_id=1552560353]
+custom_minimum_size = Vector2(0, 1080)
+
+[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(2067921385) index="1" unique_id=1486745388]
+custom_minimum_size = Vector2(1920, 0)
+text = "[font_size=48]Collaborators[/font_size]
+
+[font_size=32]Made By[/font_size]
+[url=https://orangepainting.itch.io/]OrangePainting[/url]  
+[url=https://gorgonslayer07.itch.io/]GorgonSlayer07[/url]  
+[url=https://zippybyte.itch.io/]ZippyByte[/url]  
+[url=https://1marry.itch.io/]1marry[/url]  
+[url=https://itch.io/profile/bioshzrd]BIOSHZRD[/url]  
+
+[font_size=48]Sourced[/font_size]
+Crow Sound Effects - Sound Effect by a4gfvwagf1 from Pixabay
+Bird Sounds - Sound Effect by 11325622 from Pixabay
+Dragon Wing Flapping - Sound Effect by DRAGON-STUDIO from Pixabay
+Hydrualic Hoist - Sound Effect by freesound_community from Pixabay
+Vault 2 - Sound Effect by freesound_community from Pixabay
+Demolition Excavator with Wrecking Ball - Sound Effect by free_sound_community from Pixabay
+Rubble Crash - Sound Effect by FreeEverythingxx from Pixabay
+
+[font_size=24]Godot Engine Logo[/font_size]
+Author: Andrea Calabró  
+Source: [url=https://godotengine.org/press/]godotengine.org : press[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt]CC BY 4.0 International[/url] 
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+[img=80]res:///examples/assets/godot_engine_logo/logo_vertical_color_dark.png[/img]  
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=24]Godot Game Template[/font_size]
+[img=80]res:///examples/assets/plugin_logo/logo.png[/img]  
+Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url]  
+License: [url=LICENSE.txt]MIT License[/url]  
+
+[font_size=24]Git[/font_size]
+[img=80]res:///examples/assets/git_logo/Git-Logo-2Color.png[/img]  
+Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
+Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
+License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+"
+
+[node name="FooterSpace" parent="ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(2067921385) index="2" unique_id=1703782196]
+custom_minimum_size = Vector2(0, 1080)
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="4" unique_id=535959837]
 layout_mode = 0
