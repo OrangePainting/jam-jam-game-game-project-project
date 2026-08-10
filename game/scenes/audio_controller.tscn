@@ -91,67 +91,85 @@ demolition_crane_sounds = Array[AudioStream]([ExtResource("8_1d02t"), ExtResourc
 [node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1411756606]
 stream = ExtResource("10_oeaco")
 volume_db = 5.0
+bus = &"Music"
 
 [node name="CrowCaw" type="AudioStreamPlayer" parent="." unique_id=824346822]
 stream = SubResource("AudioStreamRandomizer_li6ia")
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="HammerCrackingNut" type="AudioStreamPlayer" parent="." unique_id=279766307]
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="ItemDroppedOnGrass" type="AudioStreamPlayer" parent="." unique_id=2065397250]
 stream = ExtResource("9_13r1d")
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="ItemDroppedGenericSurface" type="AudioStreamPlayer" parent="." unique_id=1280506254]
 stream = SubResource("AudioStreamRandomizer_fic7a")
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="KeypadInteraction" type="AudioStreamPlayer" parent="." unique_id=1058993384]
 stream = SubResource("AudioStreamRandomizer_2mguh")
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="ManAcceptingNut" type="AudioStreamPlayer" parent="." unique_id=1994067506]
 stream = ExtResource("15_ey5cs")
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="ManDecliningNut" type="AudioStreamPlayer" parent="." unique_id=408923182]
 stream = SubResource("AudioStreamRandomizer_5xliv")
+bus = &"SFX"
 
 [node name="NutCrackingOnRock" type="AudioStreamPlayer" parent="." unique_id=1389571781]
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="NutOnRock" type="AudioStreamPlayer" parent="." unique_id=294062143]
 stream = SubResource("AudioStreamRandomizer_sv5f4")
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="WingFlap" type="AudioStreamPlayer" parent="." unique_id=1517662829]
 stream = SubResource("AudioStreamRandomizer_ccnio")
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="HydraulicPress" type="AudioStreamPlayer" parent="." unique_id=2041044907]
 stream = ExtResource("33_5inay")
+bus = &"SFX"
 
 [node name="NutStatue" type="AudioStreamPlayer" parent="." unique_id=331541776]
 stream = ExtResource("34_crmek")
+bus = &"SFX"
 
 [node name="SafeBox" type="AudioStreamPlayer" parent="." unique_id=675319019]
 stream = ExtResource("35_hpkcp")
+bus = &"SFX"
 
 [node name="VaultDoor" type="AudioStreamPlayer" parent="." unique_id=1430992624]
 stream = ExtResource("36_kk87r")
+bus = &"SFX"
 
 [node name="DemolitionCraneStart" type="AudioStreamPlayer" parent="." unique_id=1182270952]
 stream = ExtResource("8_1d02t")
 volume_db = -18.246
+bus = &"SFX"
 
 [node name="DemolitionCraneLoop" type="AudioStreamPlayer" parent="." unique_id=1278573590]
 stream = ExtResource("9_oeaco")
 volume_db = -19.158
+bus = &"SFX"
 
 [node name="CrowEat" type="AudioStreamPlayer" parent="." unique_id=1270240858]
 stream = ExtResource("39_oeaco")
 volume_db = 3.649
+bus = &"SFX"
 
 [connection signal="finished" from="MainMusic" to="." method="_on_main_music_finished"]
 [connection signal="finished" from="DemolitionCraneStart" to="." method="_on_demolition_crane_start_finished"]
