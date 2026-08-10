@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://caqljadb2t72n"]
 
 [ext_resource type="PackedScene" uid="uid://b8f0knv2eo1n8" path="res://game/scenes/place_interactable.tscn" id="1_87sp0"]
-[ext_resource type="Texture2D" uid="uid://bmngwd887fc45" path="res://game/assets/temp_guy.png" id="2_degwf"]
+[ext_resource type="Texture2D" uid="uid://t2vw5l3q260e" path="res://game/assets/chair_sprite_sheet.png" id="2_degwf"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_v2boo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2boo"]
+atlas = ExtResource("2_degwf")
+region = Rect2(0, 0, 434, 697)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncnps"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_degwf")
+"texture": SubResource("AtlasTexture_v2boo")
 }],
 "loop": 1,
 "name": &"default",
@@ -25,9 +29,11 @@ key_item_name = "Peanut"
 accept_sound = "play_man_accept_nut_sound"
 decline_sound = "play_man_decline_nut_sound"
 interact_sound = ""
+delete_on_key_used = false
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
-sprite_frames = SubResource("SpriteFrames_v2boo")
+z_index = 0
+sprite_frames = SubResource("SpriteFrames_ncnps")
 
 [node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
 position = Vector2(-3.5, 3.5)

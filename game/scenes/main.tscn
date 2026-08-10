@@ -28,6 +28,7 @@ position = Vector2(702, 1868)
 drop_on_break = null
 
 [node name="Rock" parent="." unique_id=359115719 instance=ExtResource("7_uk16q")]
+z_index = -1
 position = Vector2(400, 1930)
 
 [node name="Peanut" parent="." unique_id=2112127106 instance=ExtResource("9_shkmv")]
@@ -35,6 +36,7 @@ position = Vector2(1467, 2034)
 drop_on_break = null
 
 [node name="Guy" parent="." unique_id=467946923 instance=ExtResource("9_j51q3")]
+z_index = -1
 position = Vector2(1718, 1709)
 delete_on_key_used = false
 
