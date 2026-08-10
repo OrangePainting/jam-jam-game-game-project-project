@@ -2,8 +2,15 @@ class_name PlaceInteractable
 extends Interactable
 
 ## Interactable that requires the bird to be holding a specific item
+## When interacted with after putting the item in, will emit a signal
 
-@export var key_item_name: String = ""
+@export var key_item_name: String = "" # When interacted with this item do something
+
+@export var accept_sound: String = ""
+@export var decline_sound: String = ""
+@export var interact_sound: String = ""
+
+@export var delete_on_key_used: bool = false
 
 var opened: bool = false
 
@@ -15,28 +22,36 @@ func _ready() -> void:
 	
 	super()
 
+
 func interact(interactor: Node2D) -> bool:
-	if not super(interactor): return false
+	if not can_interact or not opened: return false
 	
-	# Do something maybe
+	# Code for interacting with interactable after giving the correct item
+	if AudioController.has_method(interact_sound):
+		AudioController.call(interact_sound)
+	interacted_with.emit(interactor)
 	
 	return true
 
 func interact_with_held(interactor: Node2D, held_item: Interactable) -> bool:
 	if not can_interact:
-		AudioController.play_man_decline_nut_sound() # idk if this will break other parts of the game
-		return false
-	print(held_item.name)
+		if AudioController.has_method(decline_sound):
+			AudioController.call(decline_sound)
+		return false	
 	
 	if not opened:
 		if held_item.name.match(key_item_name):
 			opened = true
 			item_placed.emit(interactor, held_item)
-			AudioController.play_man_accept_nut_sound() # idk if this will break other parts of the game
+			if AudioController.has_method(accept_sound):
+				AudioController.call(accept_sound)
+			if delete_on_key_used:
+				held_item.queue_free()
+			
 			return true
 		else:
-			AudioController.play_man_decline_nut_sound() # idk if this will break other parts of the game
-	
+			if AudioController.has_method(decline_sound):
+				AudioController.call(decline_sound)
 	return false
 
 func _on_body_entered(_body: Node) -> void: # No functionality
