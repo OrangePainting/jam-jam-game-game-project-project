@@ -12,4 +12,4 @@ interact_sound = ""
 delete_on_key_used = false
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
-z_index = -5
+z_index = -2

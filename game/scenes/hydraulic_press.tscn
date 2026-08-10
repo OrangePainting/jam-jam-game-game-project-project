@@ -54,6 +54,7 @@ object_to_crush = "Lockbox"
 
 [node name="Top" type="Sprite2D" parent="." unique_id=484891231]
 self_modulate = Color(0.24985075, 0.24985075, 0.24985075, 1)
+z_index = -2
 position = Vector2(0, -461)
 scale = Vector2(1.8515625, 1.8515625)
 texture = ExtResource("1_fbecm")
@@ -79,6 +80,7 @@ debug_color = Color(1, 0.4919266, 0.7495633, 0.41960785)
 
 [node name="Stand" type="Sprite2D" parent="." unique_id=1722052013]
 modulate = Color(0.1893278, 0.18932778, 0.1893278, 1)
+z_index = -2
 position = Vector2(0, 110)
 scale = Vector2(2.3281252, 1.234375)
 texture = ExtResource("1_fbecm")
