@@ -153,7 +153,6 @@ texture = ExtResource("4_y08k3")
 centered = false
 
 [node name="BottomCover" type="Sprite2D" parent="." unique_id=523055003]
-visible = false
 z_index = 1
 position = Vector2(4314, 1166)
 texture = ExtResource("5_nepmf")

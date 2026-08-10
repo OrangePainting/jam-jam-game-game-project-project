@@ -38,7 +38,6 @@ drop_on_break = null
 [node name="Guy" parent="." unique_id=467946923 instance=ExtResource("9_j51q3")]
 z_index = -1
 position = Vector2(1718, 1709)
-delete_on_key_used = false
 
 [node name="Coconut" parent="." unique_id=57514100 instance=ExtResource("9_rmvmd")]
 position = Vector2(4723, 853)
@@ -53,7 +52,7 @@ position = Vector2(5188, 895)
 position = Vector2(5436, 1834)
 
 [node name="HydraulicPressControls" parent="." unique_id=1493323821 instance=ExtResource("13_12hk3")]
-position = Vector2(5085, 1858)
+position = Vector2(5435, 1912)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=977001564]
 
