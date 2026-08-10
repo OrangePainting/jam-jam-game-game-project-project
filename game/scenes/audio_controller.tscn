@@ -39,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://c5uhuom7h6ko8" path="res://game/assets/sounds/nut_statue_demolition_v1.wav" id="34_crmek"]
 [ext_resource type="AudioStream" uid="uid://btlwi3na61vj5" path="res://game/assets/sounds/safe-box-breaking-open.wav" id="35_hpkcp"]
 [ext_resource type="AudioStream" uid="uid://d2rjt8j0ollcs" path="res://game/assets/sounds/vault_door_opening.wav" id="36_kk87r"]
+[ext_resource type="AudioStream" uid="uid://b8jkrrvhdilul" path="res://game/assets/sounds/key_in_lock.wav" id="39_nokfj"]
 [ext_resource type="AudioStream" uid="uid://d4nelfb85la8e" path="res://game/assets/sounds/bird_eating_nut.wav" id="39_oeaco"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_li6ia"]
@@ -152,8 +153,14 @@ bus = &"SFX"
 stream = ExtResource("35_hpkcp")
 bus = &"SFX"
 
+[node name="KeyInserted" type="AudioStreamPlayer" parent="." unique_id=1023546707]
+stream = ExtResource("39_nokfj")
+volume_db = 10.035
+bus = &"SFX"
+
 [node name="VaultDoor" type="AudioStreamPlayer" parent="." unique_id=1430992624]
 stream = ExtResource("36_kk87r")
+volume_db = 2.736
 bus = &"SFX"
 
 [node name="DemolitionCraneStart" type="AudioStreamPlayer" parent="." unique_id=1182270952]

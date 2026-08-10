@@ -61,5 +61,6 @@ shape = SubResource("RectangleShape2D_uwmgi")
 disabled = true
 
 [node name="SafePanel" parent="." index="3" unique_id=851194893 instance=ExtResource("3_7xh7k")]
+accept_sound = "play_vault_door_sound"
 
 [connection signal="item_placed" from="SafePanel" to="." method="_on_place_interactable_item_placed"]
