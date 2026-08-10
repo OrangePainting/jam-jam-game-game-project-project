@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bw4hu6ct7o34w"]
+
+[ext_resource type="Texture2D" uid="uid://ds3jqijeyhy4i" path="res://game/assets/bigNut.png" id="1_c4mpr"]
+
+[node name="BigNut" type="Sprite2D" unique_id=1482624471]
+z_index = -2
+texture = ExtResource("1_c4mpr")
