@@ -1,23 +1,35 @@
 [gd_scene format=3 uid="uid://b75yku6p2sgnx"]
 
 [ext_resource type="PackedScene" uid="uid://g7uytigmrbqh" path="res://game/scenes/nut.tscn" id="1_slg4c"]
-[ext_resource type="Texture2D" uid="uid://buqjft5cgjgjx" path="res://game/assets/icon.svg" id="2_grb1v"]
 [ext_resource type="PackedScene" uid="uid://suv1hx0rwpvw" path="res://game/scenes/safe_code.tscn" id="2_iuvvf"]
-[ext_resource type="Texture2D" uid="uid://btwts2hm8x83s" path="res://game/assets/lockbox_temp.png" id="2_qsdxa"]
+[ext_resource type="Texture2D" uid="uid://ds52ig35dismy" path="res://game/assets/lockNut_sprite_sheet.png" id="3_grb1v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuvvf"]
+atlas = ExtResource("3_grb1v")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38aa2"]
+atlas = ExtResource("3_grb1v")
+region = Rect2(0, 0, 320, 320)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_grb1v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_grb1v")
+"texture": SubResource("AtlasTexture_iuvvf")
 }],
 "loop": 0,
 "name": &"Cracked",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": 1,
+"name": &"Eaten",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_qsdxa")
+"texture": SubResource("AtlasTexture_38aa2")
 }],
 "loop": 1,
 "name": &"Uncracked",
@@ -25,10 +37,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grb1v"]
-size = Vector2(282, 142)
+size = Vector2(307, 176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuvvf"]
-size = Vector2(340, 217)
+size = Vector2(413, 270)
 
 [sub_resource type="Animation" id="Animation_grb1v"]
 resource_name = "lockbox_breaking"
@@ -44,15 +56,15 @@ crack_sound = "play_safe_box_break_sound"
 drop_on_break = ExtResource("2_iuvvf")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
-scale = Vector2(2, 2)
+position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_grb1v")
 
 [node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
-position = Vector2(0.5, 19)
+position = Vector2(-0.5, 76)
 shape = SubResource("RectangleShape2D_grb1v")
 
 [node name="CollisionShape2D" parent="ZoneDetection" parent_id_path=PackedInt32Array(843964876) index="0" unique_id=2004845325]
-position = Vector2(0, -3.5)
+position = Vector2(-4.5, 73)
 shape = SubResource("RectangleShape2D_iuvvf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=65377391]
