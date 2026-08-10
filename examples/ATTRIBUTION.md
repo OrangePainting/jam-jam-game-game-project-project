@@ -1,17 +1,21 @@
 # Attribution
 ## Collaborators
 
-### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
+### Made By
+[OrangePainting](https://orangepainting.itch.io/)  
+[GorgonSlayer07](https://gorgonslayer07.itch.io/)  
+[ZippyByte](https://zippybyte.itch.io/)  
+[1marry](https://1marry.itch.io/)  
+[BIOSHZRD](https://itch.io/profile/bioshzrd)  
 
 ## Sourced
-### Asset Type
-#### Use Case
-Author: [Name]()  
-Source: [Domain : webpage.html]()  
-License: [License]()
+Crow Sound Effects - Sound Effect by a4gfvwagf1 from Pixabay
+Bird Sounds - Sound Effect by 11325622 from Pixabay
+Dragon Wing Flapping - Sound Effect by DRAGON-STUDIO from Pixabay
+Hydrualic Hoist - Sound Effect by freesound_community from Pixabay
+Vault 2 - Sound Effect by freesound_community from Pixabay
+Demolition Excavator with Wrecking Ball - Sound Effect by free_sound_community from Pixabay
+Rubble Crash - Sound Effect by FreeEverythingxx from Pixabay
 
 #### Godot Engine Logo
 Author: Andrea Calabró  
