@@ -20,8 +20,6 @@ func interact_with_held(interactor: Node2D, held_item: Interactable) -> bool:
 			if delete_on_key_used:
 				held_item.queue_free()
 			
-			leave_after_delay()
-			
 			return true
 		else:
 			if AudioController.has_method(decline_sound):
