@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bf4505y56k7l1" path="res://game/assets/sounds/item_dropped_on_grass/item_dropped_on_grass.wav" id="9_13r1d"]
 [ext_resource type="AudioStream" uid="uid://xe3ndv63porv" path="res://game/assets/sounds/demolition_crane/crane_running_loop.wav" id="9_oeaco"]
 [ext_resource type="AudioStream" uid="uid://ckhtv4uwogwpu" path="res://game/assets/sounds/item_dropped_on_grass/item_droppped_generic_1.wav" id="10_5yhl7"]
+[ext_resource type="AudioStream" uid="uid://dgraxvo1b2v0b" path="res://game/assets/sounds/Background Music For a Determined Crow.mp3" id="10_oeaco"]
 [ext_resource type="AudioStream" uid="uid://bccmfihys0ol7" path="res://game/assets/sounds/item_dropped_on_grass/item_droppped_generic_2.wav" id="11_ey5cs"]
 [ext_resource type="AudioStream" uid="uid://vs3f4k3xl8c1" path="res://game/assets/sounds/item_dropped_on_grass/item_droppped_generic_3.wav" id="12_ni82t"]
 [ext_resource type="AudioStream" uid="uid://dfclvn4fy2so0" path="res://game/assets/sounds/keypad_interaction/key_pad_interaction_1.wav" id="13_dh8a5"]
@@ -38,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://c5uhuom7h6ko8" path="res://game/assets/sounds/nut_statue_demolition_v1.wav" id="34_crmek"]
 [ext_resource type="AudioStream" uid="uid://btlwi3na61vj5" path="res://game/assets/sounds/safe-box-breaking-open.wav" id="35_hpkcp"]
 [ext_resource type="AudioStream" uid="uid://d2rjt8j0ollcs" path="res://game/assets/sounds/vault_door_opening.wav" id="36_kk87r"]
+[ext_resource type="AudioStream" uid="uid://d4nelfb85la8e" path="res://game/assets/sounds/bird_eating_nut.wav" id="39_oeaco"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_li6ia"]
 streams_count = 4
@@ -87,6 +89,8 @@ nut_cracking_on_rock_incremental_sounds = Array[AudioStream]([ExtResource("5_odj
 demolition_crane_sounds = Array[AudioStream]([ExtResource("8_1d02t"), ExtResource("9_oeaco")])
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1411756606]
+stream = ExtResource("10_oeaco")
+volume_db = 5.0
 
 [node name="CrowCaw" type="AudioStreamPlayer" parent="." unique_id=824346822]
 stream = SubResource("AudioStreamRandomizer_li6ia")
@@ -139,4 +143,8 @@ stream = ExtResource("36_kk87r")
 
 [node name="DemolitionCrane" type="AudioStreamPlayer" parent="." unique_id=1278573590]
 
+[node name="CrowEat" type="AudioStreamPlayer" parent="." unique_id=1270240858]
+stream = ExtResource("39_oeaco")
+
+[connection signal="finished" from="MainMusic" to="." method="_on_main_music_finished"]
 [connection signal="finished" from="DemolitionCrane" to="." method="_on_demolition_crane_finished"]

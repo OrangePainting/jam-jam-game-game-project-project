@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://g7uytigmrbqh" path="res://game/scenes/nut.tscn" id="1_hwgam"]
 [ext_resource type="Texture2D" uid="uid://gi0c3h6cmv8n" path="res://game/assets/coconut_sprite_sheet.png" id="2_a3sby"]
+[ext_resource type="PackedScene" uid="uid://c6nxmtlsjftec" path="res://game/scenes/hydraulic_press_key.tscn" id="2_me7p6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_me7p6"]
 atlas = ExtResource("2_a3sby")
@@ -48,9 +49,10 @@ radius = 138.06
 
 [node name="Coconut" unique_id=467946923 instance=ExtResource("1_hwgam")]
 mass = 15.0
+break_on_name = "Hammer"
 velocity_needed = 300.0
 crack_sound = "play_hammer_cracking_nut_sound"
-crack_index = 0
+drop_on_break = ExtResource("2_me7p6")
 can_pick_up = false
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]

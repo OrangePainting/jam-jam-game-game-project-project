@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b0yowyrv33ity"]
+
+[ext_resource type="PackedScene" uid="uid://b6rc721qi55ev" path="res://game/scenes/trigger_interactable.tscn" id="1_4m5pa"]
+[ext_resource type="Script" uid="uid://lhf2ifqr3re0" path="res://game/scripts/place_interactable.gd" id="2_el48t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6b8lt"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="HydraulicPressControls" unique_id=467946923 instance=ExtResource("1_4m5pa")]
+script = ExtResource("2_el48t")
+key_item_name = "HydraulicPressKey"
+accept_sound = ""
+decline_sound = ""
+interact_sound = ""
+delete_on_key_used = true
+carry_offset = Vector2(-60, 0)
+
+[node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
+visible = false
+
+[node name="ZoneDetection" parent="." index="2" unique_id=843964876]
+visible = false
+
+[node name="Label" type="Label" parent="." index="3" unique_id=85741444]
+offset_left = -96.0
+offset_top = -85.0
+offset_right = 94.0
+offset_bottom = -62.0
+text = "Hydraulic Press Controls"
+label_settings = SubResource("LabelSettings_6b8lt")
