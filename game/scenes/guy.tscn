@@ -7,11 +7,18 @@
 atlas = ExtResource("2_degwf")
 region = Rect2(0, 0, 434, 697)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_degwf"]
+atlas = ExtResource("2_degwf")
+region = Rect2(434, 0, 434, 697)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ncnps"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v2boo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_degwf")
 }],
 "loop": 1,
 "name": &"default",
