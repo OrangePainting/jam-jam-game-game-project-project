@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://ddtapa4whmhc"]
+
+[ext_resource type="Texture2D" uid="uid://cfhaymbg34yyc" path="res://icon.svg" id="1_fbecm"]
+[ext_resource type="Script" uid="uid://b3521r2cledea" path="res://game/scripts/hydraulic_press.gd" id="1_up5l8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qm8dg"]
+size = Vector2(300, 159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_up5l8"]
+size = Vector2(225, 110)
+
+[sub_resource type="Animation" id="Animation_up5l8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -461)]
+}
+
+[sub_resource type="Animation" id="Animation_w0ydl"]
+resource_name = "crush"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -461), Vector2(0, -136)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cpb4d"]
+_data = {
+&"RESET": SubResource("Animation_up5l8"),
+&"crush": SubResource("Animation_w0ydl")
+}
+
+[node name="HydraulicPress" type="StaticBody2D" unique_id=1461353893]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_up5l8")
+object_to_crush = "Lockbox"
+
+[node name="Top" type="Sprite2D" parent="." unique_id=484891231]
+modulate = Color(0.1893278, 0.18932778, 0.1893278, 1)
+position = Vector2(0, -461)
+scale = Vector2(1.8515625, 1.8515625)
+texture = ExtResource("1_fbecm")
+
+[node name="Press" type="Sprite2D" parent="Top" unique_id=1723296262]
+modulate = Color(0.1893278, 0.18932778, 0.1893278, 1)
+position = Vector2(-1.0000036, 68.5)
+scale = Vector2(1.1874999, 0.30468756)
+texture = ExtResource("1_fbecm")
+
+[node name="Stand" type="Sprite2D" parent="." unique_id=1722052013]
+modulate = Color(0.1893278, 0.18932778, 0.1893278, 1)
+position = Vector2(0, 110)
+scale = Vector2(2.3281252, 1.234375)
+texture = ExtResource("1_fbecm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1996016657]
+position = Vector2(0, 110.5)
+shape = SubResource("RectangleShape2D_qm8dg")
+
+[node name="CrushingArea" type="Area2D" parent="." unique_id=875665915]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 16
+
+[node name="CrushingCollider" type="CollisionShape2D" parent="CrushingArea" unique_id=1669597379]
+position = Vector2(-1.5, -25)
+shape = SubResource("RectangleShape2D_up5l8")
+debug_color = Color(0.7909104, 0, 0.21656355, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1102545800]
+libraries/ = SubResource("AnimationLibrary_cpb4d")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

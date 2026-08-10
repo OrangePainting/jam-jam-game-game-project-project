@@ -57,7 +57,7 @@ func _break_open():
 	if drop_on_break != null:
 		var object = drop_on_break.instantiate()
 		object.position = position
-		get_node("..").add_child(object) # Puts node on parent of this node
+		get_node("..").add_child.call_deferred(object) # Puts node on parent of this node
 
 func _on_place_interactable_item_placed(interactor: Node2D, item: Interactable) -> void:
 	if not broken:
