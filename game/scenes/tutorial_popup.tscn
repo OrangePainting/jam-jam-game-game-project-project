@@ -29,7 +29,7 @@ text = "Find a way to crack open these nuts!
 WASD / Arrow Keys - Move
 E - Interact
 
-Mouse over the clip board to look at objectives"
+Mouse over the clipboard to look at objectives"
 label_settings = SubResource("LabelSettings_lkpux")
 horizontal_alignment = 1
 vertical_alignment = 1
