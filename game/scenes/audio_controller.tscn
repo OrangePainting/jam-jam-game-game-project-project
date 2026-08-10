@@ -141,10 +141,17 @@ stream = ExtResource("35_hpkcp")
 [node name="VaultDoor" type="AudioStreamPlayer" parent="." unique_id=1430992624]
 stream = ExtResource("36_kk87r")
 
-[node name="DemolitionCrane" type="AudioStreamPlayer" parent="." unique_id=1278573590]
+[node name="DemolitionCraneStart" type="AudioStreamPlayer" parent="." unique_id=1182270952]
+stream = ExtResource("8_1d02t")
+volume_db = -18.246
+
+[node name="DemolitionCraneLoop" type="AudioStreamPlayer" parent="." unique_id=1278573590]
+stream = ExtResource("9_oeaco")
+volume_db = -19.158
 
 [node name="CrowEat" type="AudioStreamPlayer" parent="." unique_id=1270240858]
 stream = ExtResource("39_oeaco")
+volume_db = 3.649
 
 [connection signal="finished" from="MainMusic" to="." method="_on_main_music_finished"]
-[connection signal="finished" from="DemolitionCrane" to="." method="_on_demolition_crane_finished"]
+[connection signal="finished" from="DemolitionCraneStart" to="." method="_on_demolition_crane_start_finished"]

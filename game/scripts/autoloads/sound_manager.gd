@@ -26,6 +26,9 @@ func play_in_game_music() -> void:
 	#$Music.stream = music_tracks[current_track]
 	$MainMusic.play()
 
+func stop_main_music() -> void:
+	$MainMusic.stop()
+
 func _on_main_music_finished() -> void:
 	#current_track = (current_track + 1) % len(music_tracks)
 	play_in_game_music()
@@ -33,8 +36,12 @@ func _on_main_music_finished() -> void:
 func play_crow_caw() -> void:
 	if not mute: $CrowCaw.play()
 
-func play_crow_eat() -> void:
+func play_crow_eat(is_loud: bool = false) -> void:
 	if not mute:
+		if is_loud:
+			$CrowEat.volume_db = 20.0
+		else:
+			$CrowEat.volume_db = 3.0
 		$CrowEat.pitch_scale = randf_range(0.9, 1.1)
 		$CrowEat.play()
 
@@ -79,14 +86,17 @@ func play_safe_box_break_sound(_index: int = 0) -> void:
 	if not mute: $SafeBox.play()
 
 func play_demolition_crane_sound() -> void:
-	$DemolitionCrane.stream = demolition_crane_sounds[0] # startup
-	if not mute: $DemolitionCrane.play()
-	await get_tree().create_timer(2).timeout
-	_on_demolition_crane_finished()
+	if not mute: $DemolitionCraneStart.play()
 
 func play_demolition_crane_loop() -> void:
-	if not mute: $DemolitionCrane.play()
+	if not mute: $DemolitionCraneLoop.play()
+
+func play_vault_door_sound() -> void:
+	if not mute: $VaultDoor.play()
 
 # On Loop Finished
 func _on_demolition_crane_finished() -> void:
-	if not mute: $DemolitionCrane.play()
+	if not mute: $DemolitionCraneLoop.play()
+
+func _on_demolition_crane_start_finished() -> void:
+	_on_demolition_crane_finished()

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b8f0knv2eo1n8" path="res://game/scenes/place_interactable.tscn" id="1_aqu6g"]
 [ext_resource type="Texture2D" uid="uid://d3ebu3r86clwo" path="res://game/assets/crane.png" id="2_6gnnn"]
+[ext_resource type="Script" uid="uid://ceiplktma540p" path="res://game/scripts/crane.gd" id="2_cyunr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cyunr"]
 animations = [{
@@ -20,7 +21,45 @@ size = Vector2(342, 248)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7q6mi"]
 size = Vector2(390.5, 284)
 
+[sub_resource type="Animation" id="Animation_cyunr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(43.5, -41)]
+}
+
+[sub_resource type="Animation" id="Animation_mmhde"]
+resource_name = "start_moving"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(43.5, -41), Vector2(-1265, -41)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7q6mi"]
+_data = {
+&"RESET": SubResource("Animation_cyunr"),
+&"start_moving": SubResource("Animation_mmhde")
+}
+
 [node name="Crane" unique_id=467946923 instance=ExtResource("1_aqu6g")]
+script = ExtResource("2_cyunr")
 key_item_name = "CraneKey"
 delete_on_key_used = true
 
@@ -38,3 +77,6 @@ position = Vector2(362, 283)
 [node name="CollisionShape2D" parent="ZoneDetection" index="0" unique_id=2004845325]
 position = Vector2(-49.25, 25)
 shape = SubResource("RectangleShape2D_7q6mi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1403211173]
+libraries/ = SubResource("AnimationLibrary_7q6mi")
