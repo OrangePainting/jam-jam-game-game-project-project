@@ -96,6 +96,7 @@ unique_name_in_owner = true
 script = ExtResource("18_q1x0e")
 
 [connection signal="item_placed" from="Guy" to="Peanut" method="_on_place_interactable_item_placed"]
+[connection signal="broken_open" from="Coconut" to="Hammer" method="_on_nut_broken_open"]
 [connection signal="interacted_with" from="HydraulicPressControls" to="Hydraulic_Press" method="_on_hydraulic_press_controls_interacted_with"]
 [connection signal="end_game" from="Crane" to="." method="_on_crane_end_game"]
 [connection signal="item_placed" from="Crane" to="BigNut" method="_on_place_interactable_item_placed"]
