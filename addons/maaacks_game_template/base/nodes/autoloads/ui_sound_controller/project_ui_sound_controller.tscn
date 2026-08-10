@@ -1,6 +1,25 @@
 [gd_scene format=3 uid="uid://cc37235kj4384"]
 
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="1_dmagn"]
+[ext_resource type="AudioStream" uid="uid://615n7q41g7ij" path="res://game/assets/sounds/UI/menu_focus_1.wav" id="2_1bvi8"]
+[ext_resource type="AudioStream" uid="uid://ccbpxc1pbib0u" path="res://game/assets/sounds/UI/menu_focus_2.wav" id="3_n48mk"]
+[ext_resource type="AudioStream" uid="uid://bb2h4ffnsbxgf" path="res://game/assets/sounds/UI/menu_focus_3.wav" id="4_qffex"]
+[ext_resource type="AudioStream" uid="uid://b4mm8hjm0i6fa" path="res://game/assets/sounds/UI/menu_select.wav" id="5_saweg"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wpa0j"]
+streams_count = 3
+stream_0/stream = ExtResource("2_1bvi8")
+stream_1/stream = ExtResource("3_n48mk")
+stream_2/stream = ExtResource("4_qffex")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_apdhb"]
+streams_count = 3
+stream_0/stream = ExtResource("2_1bvi8")
+stream_1/stream = ExtResource("3_n48mk")
+stream_2/stream = ExtResource("4_qffex")
 
 [node name="ProjectUISoundController" type="Node" unique_id=1525696179]
 script = ExtResource("1_dmagn")
+button_hovered = SubResource("AudioStreamRandomizer_wpa0j")
+button_focused = SubResource("AudioStreamRandomizer_apdhb")
+button_pressed = ExtResource("5_saweg")
