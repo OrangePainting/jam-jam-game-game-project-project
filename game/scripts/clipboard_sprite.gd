@@ -33,12 +33,16 @@ func _ready() -> void:
 	original_position = visual.position
 	original_rotation = visual.rotation
 	
-	acorn.interactable_eaten.connect(acorn_eaten)
-	peanut.interactable_eaten.connect(peanut_eaten)
-	coconut.interactable_eaten.connect(coconut_eaten)
-	lockbox.interactable_eaten.connect(lockbox_eaten)
-	safe.interactable_eaten.connect(safe_eaten)
-	if big_statue != null: big_statue.interactable_eaten.connect(big_statue_eaten)
+	connect_eaten(acorn, acorn_eaten, "acorn")
+	connect_eaten(peanut, peanut_eaten, "peanut")
+	connect_eaten(coconut, coconut_eaten, "coconut")
+	connect_eaten(lockbox, lockbox_eaten, "lockbox")
+	connect_eaten(safe, safe_eaten, "safe")
+	connect_eaten(big_statue, big_statue_eaten, "big_statue")
+
+func connect_eaten(node: Node, signal_func: Callable, label: String) -> void:
+	node.interactable_eaten.connect(signal_func)
+
 
 func _process(delta: float) -> void:
 	var t = ""
