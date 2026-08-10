@@ -43,6 +43,7 @@ can_pick_up = false
 carry_offset = Vector2(-60, 0)
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
+z_index = -2
 sprite_frames = SubResource("SpriteFrames_7xh7k")
 
 [node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
