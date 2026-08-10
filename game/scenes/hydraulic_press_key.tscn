@@ -15,8 +15,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_k6o5f"]
-points = PackedVector2Array(101.5, 8, -84.5, -82, -32.5, 90)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv7pb"]
+size = Vector2(185, 94)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mg4se"]
 size = Vector2(245, 203)
@@ -30,8 +30,8 @@ carry_offset = Vector2(-60, 0)
 sprite_frames = SubResource("SpriteFrames_n15oi")
 
 [node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
-position = Vector2(0.5, 0)
-shape = SubResource("ConvexPolygonShape2D_k6o5f")
+position = Vector2(2.5, -3)
+shape = SubResource("RectangleShape2D_hv7pb")
 
 [node name="CollisionShape2D" parent="ZoneDetection" parent_id_path=PackedInt32Array(843964876) index="0" unique_id=2004845325]
 position = Vector2(-2.5, 2.5)
