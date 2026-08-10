@@ -21,6 +21,8 @@ size = Vector2(225, 122)
 size = Vector2(259, 150)
 
 [node name="CraneKey" unique_id=467946923 instance=ExtResource("1_s3j24")]
+mass = 5.0
+gravity_scale = 2.0
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
 sprite_frames = SubResource("SpriteFrames_atxrx")

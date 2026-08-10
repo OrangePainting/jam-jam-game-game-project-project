@@ -2,22 +2,49 @@
 
 [ext_resource type="Script" uid="uid://cpayt6ygs6god" path="res://game/scripts/tutorial_popup.gd" id="1_lkpux"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_lkpux"]
+font_size = 40
+
 [node name="TutorialPopup" type="Control" unique_id=1812180768]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = 8.0
+offset_right = -31.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lkpux")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1423515474]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -487.0
+offset_top = -398.0
+offset_right = 508.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3882353)
+
 [node name="Label" type="Label" parent="." unique_id=989036065]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 96.0
-offset_right = 345.0
-offset_bottom = 197.0
+offset_left = 515.0
+offset_top = 130.0
+offset_right = 1427.0
+offset_bottom = 563.75
 text = "Find a way to crack open these nuts!
 
-Arrow Keys - Move
-E - Interact"
+WASD / Arrow Keys - Move
+E - Interact
+
+Mouse over the clipboard to look at objectives"
+label_settings = SubResource("LabelSettings_lkpux")
+horizontal_alignment = 1
+vertical_alignment = 1

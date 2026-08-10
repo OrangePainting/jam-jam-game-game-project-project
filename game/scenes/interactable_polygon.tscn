@@ -19,7 +19,7 @@ size = Vector2(64, 64)
 
 [node name="Interactable" type="RigidBody2D" unique_id=467946923]
 collision_layer = 16
-collision_mask = 23
+collision_mask = 21
 script = ExtResource("1_qdwfh")
 carry_offset = Vector2(-120, 0)
 

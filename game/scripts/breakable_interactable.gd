@@ -14,12 +14,14 @@ extends Interactable
 
 @export var drop_on_break: PackedScene = null
 
+signal interactable_eaten()
+
 var broken: bool = false;
 
 func _on_body_entered(body: Node) -> void:
 	super._on_body_entered(body) # MUST ADD THIS AT EVERY ON BODY ENTERED FUNCTION
 	
-	# If the body is named break_on_name
+	# If the body is nzamed break_on_name
 	if (not broken and not is_held and not break_on_name.is_empty() 
 	and body.name.match(break_on_name)):
 		_try_break_open(body)
@@ -67,6 +69,7 @@ func _break_open():
 # Gets called after this interactable has been broken and is then interacted with.
 func interact(_interactor: Node2D) -> bool:
 	if broken:
+		interactable_eaten.emit()
 		AudioController.call("play_crow_eat")
 		queue_free()
 	return true

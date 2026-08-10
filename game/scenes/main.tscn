@@ -47,6 +47,8 @@ position = Vector2(4530, 874)
 
 [node name="Hammer" parent="." unique_id=730389216 instance=ExtResource("10_shkmv")]
 position = Vector2(4574, 1824)
+mass = 20.0
+gravity_scale = 3.0
 
 [node name="Lockbox" parent="." unique_id=1590690851 instance=ExtResource("12_6mtf4")]
 position = Vector2(5065, 909)
@@ -73,7 +75,13 @@ position = Vector2(984, 1470)
 
 [node name="TutorialPopup" parent="UI" unique_id=1812180768 instance=ExtResource("11_j51q3")]
 
-[node name="Clipboard" parent="UI" unique_id=845054054 instance=ExtResource("14_3v7cf")]
+[node name="Clipboard" parent="UI" unique_id=845054054 node_paths=PackedStringArray("acorn", "peanut", "coconut", "lockbox", "safe", "big_statue") instance=ExtResource("14_3v7cf")]
+acorn = NodePath("../../Acorn")
+peanut = NodePath("../../Peanut")
+coconut = NodePath("../../Coconut")
+lockbox = NodePath("../../Lockbox")
+safe = NodePath("../../Safe")
+big_statue = NodePath("../../BigNut")
 
 [node name="ColorRect" type="ColorRect" parent="UI" unique_id=1776127478]
 anchors_preset = 15
@@ -90,3 +98,4 @@ script = ExtResource("18_q1x0e")
 [connection signal="item_placed" from="Guy" to="Peanut" method="_on_place_interactable_item_placed"]
 [connection signal="interacted_with" from="HydraulicPressControls" to="Hydraulic_Press" method="_on_hydraulic_press_controls_interacted_with"]
 [connection signal="end_game" from="Crane" to="." method="_on_crane_end_game"]
+[connection signal="item_placed" from="Crane" to="BigNut" method="_on_place_interactable_item_placed"]
