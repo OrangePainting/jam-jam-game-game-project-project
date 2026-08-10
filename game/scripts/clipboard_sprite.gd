@@ -2,7 +2,7 @@ extends Control
 
 @onready var sprite = %ClipboardSprite
 @onready var bullet_text = %Bullets
-var things_completed: int = 0
+var things_completed: int = 3
 
 
 var clipboard_bullets: Array[String] = [
