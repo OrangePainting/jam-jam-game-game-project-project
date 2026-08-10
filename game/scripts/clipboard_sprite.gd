@@ -4,13 +4,20 @@ extends Control
 @onready var sprite = %ClipboardSprite
 @onready var bullet_text = %Bullets
 
-var things_completed: int = 3
+var things_completed: Array[int] = []
 
 @export var hover_position_offset := Vector2(350, 0)
 @export var hover_rotation_deg: float = 10
 @export var tween_duration: float = 0.25
 @export var trigger_zone: Rect2 = Rect2(Vector2.ZERO, Vector2(80, 600))
 @export var strikethrough_list: Array[Node]
+
+@export var acorn: Node #0
+@export var peanut: Node #1
+@export var coconut: Node #2
+@export var lockbox: Node #3
+@export var safe: Node #4
+@export var big_statue: Node #5
 
 var clipboard_bullets: Array[String] = [
 	"Acorn", "Peanut", "Coconut", "Lockbox", "Vault", "Acorn Statue"
@@ -25,11 +32,18 @@ func _ready() -> void:
 	bullet_text.text = ""
 	original_position = visual.position
 	original_rotation = visual.rotation
+	
+	acorn.interactable_eaten.connect(acorn_eaten)
+	peanut.interactable_eaten.connect(peanut_eaten)
+	coconut.interactable_eaten.connect(coconut_eaten)
+	lockbox.interactable_eaten.connect(lockbox_eaten)
+	safe.interactable_eaten.connect(safe_eaten)
+	if big_statue != null: big_statue.interactable_eaten.connect(big_statue_eaten)
 
 func _process(delta: float) -> void:
 	var t = ""
 	for i in range(len(clipboard_bullets)):
-		if i < things_completed: strikethrough_list[i].show()
+		if things_completed.has(i): strikethrough_list[i].show()
 		else: strikethrough_list[i].hide()
 		t += clipboard_bullets[i] + "\n"
 	bullet_text.text = "[ul]" + t + "[/ul]"
@@ -48,3 +62,21 @@ func move_to(target_pos: Vector2, target_rot: float) -> void:
 	hover_tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	hover_tween.tween_property(visual, "position", target_pos, tween_duration)
 	hover_tween.tween_property(visual, "rotation", target_rot, tween_duration)
+
+func acorn_eaten() -> void:
+	things_completed.append(0)
+
+func peanut_eaten() -> void:
+	things_completed.append(1)
+
+func coconut_eaten() -> void:
+	things_completed.append(2)
+
+func lockbox_eaten() -> void:
+	things_completed.append(3)
+
+func safe_eaten() -> void:
+	things_completed.append(4)
+
+func big_statue_eaten() -> void:
+	things_completed.append(5)
