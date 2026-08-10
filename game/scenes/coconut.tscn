@@ -63,8 +63,10 @@ position = Vector2(-3, 8)
 shape = SubResource("CircleShape2D_pvuun")
 
 [node name="Anti Roll Collider" type="CollisionShape2D" parent="." index="2" unique_id=631637898]
+visible = false
 position = Vector2(-2, 67.5)
 shape = SubResource("RectangleShape2D_qm8dg")
+disabled = true
 
 [node name="ZoneDetection" parent="." index="3" unique_id=843964876]
 position = Vector2(-3, 7)
