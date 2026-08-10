@@ -48,6 +48,7 @@ position = Vector2(1718, 1709)
 
 [node name="Coconut" parent="." unique_id=57514100 instance=ExtResource("9_rmvmd")]
 position = Vector2(4530, 874)
+no_crack_sound_fail = "play_nut_on_rock_sound"
 
 [node name="Hammer" parent="." unique_id=730389216 instance=ExtResource("10_shkmv")]
 position = Vector2(4574, 1824)
