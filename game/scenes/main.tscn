@@ -49,10 +49,10 @@ position = Vector2(4574, 1824)
 position = Vector2(5065, 909)
 
 [node name="Hydraulic_Press" parent="." unique_id=1461353893 instance=ExtResource("11_6mtf4")]
-position = Vector2(5550, 1771)
+position = Vector2(5428, 1812)
 
 [node name="HydraulicPressControls" parent="." unique_id=1493323821 instance=ExtResource("13_12hk3")]
-position = Vector2(5226, 1769)
+position = Vector2(5428, 1911)
 
 [node name="Safe" parent="." unique_id=846948096 instance=ExtResource("13_3v7cf")]
 z_index = 0

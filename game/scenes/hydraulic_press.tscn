@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://ddtapa4whmhc"]
 
-[ext_resource type="Texture2D" uid="uid://cfhaymbg34yyc" path="res://icon.svg" id="1_fbecm"]
 [ext_resource type="Script" uid="uid://b3521r2cledea" path="res://game/scripts/hydraulic_press.gd" id="1_up5l8"]
+[ext_resource type="Texture2D" uid="uid://l3nlbp8stn8y" path="res://game/assets/press_top.png" id="2_cpb4d"]
+[ext_resource type="Texture2D" uid="uid://dapooy00eya8g" path="res://game/assets/press_mid.png" id="3_idd4o"]
+[ext_resource type="Texture2D" uid="uid://cq4kbfew3k0n4" path="res://game/assets/press_bottom.png" id="4_apcp8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_up5l8"]
-size = Vector2(282.99997, 73)
+size = Vector2(733.21875, 132.039)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qm8dg"]
-size = Vector2(300, 159)
+size = Vector2(973, 294)
 
 [sub_resource type="Animation" id="Animation_up5l8"]
 length = 0.001
@@ -21,12 +23,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -461)]
+"values": [Vector2(5, -262)]
 }
 
 [sub_resource type="Animation" id="Animation_w0ydl"]
 resource_name = "crush"
-length = 6.0
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,10 +36,10 @@ tracks/0/path = NodePath("Top:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.99, 6, 6.28, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -461), Vector2(0, -136)]
+"values": [Vector2(5, -262), Vector2(5, -262), Vector2(5, -77), Vector2(5, -77), Vector2(5, -262)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cpb4d"]
@@ -53,44 +55,47 @@ script = ExtResource("1_up5l8")
 object_to_crush = "Lockbox"
 
 [node name="Top" type="Sprite2D" parent="." unique_id=484891231]
-self_modulate = Color(0.24985075, 0.24985075, 0.24985075, 1)
-z_index = -2
-position = Vector2(0, -461)
-scale = Vector2(1.8515625, 1.8515625)
-texture = ExtResource("1_fbecm")
+position = Vector2(5, -262)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cpb4d")
 
 [node name="Press" type="Sprite2D" parent="Top" unique_id=1723296262]
-modulate = Color(0.1893278, 0.18932778, 0.1893278, 1)
-position = Vector2(-1.0000036, 68.5)
-scale = Vector2(1.1874999, 0.30468756)
-texture = ExtResource("1_fbecm")
+show_behind_parent = true
+position = Vector2(0, 2)
+texture = ExtResource("3_idd4o")
 
-[node name="CrushingArea" type="Area2D" parent="Top" unique_id=875665915]
+[node name="CrushingArea" type="Area2D" parent="Top/Press" unique_id=875665915]
 unique_name_in_owner = true
-position = Vector2(0, 248.97891)
+position = Vector2(1, 234.97888)
 scale = Vector2(0.5400844, 0.5400844)
 collision_layer = 0
 collision_mask = 16
 
-[node name="CrushingCollider" type="CollisionShape2D" parent="Top/CrushingArea" unique_id=1669597379]
+[node name="CrushingCollider" type="CollisionShape2D" parent="Top/Press/CrushingArea" unique_id=1669597379]
 unique_name_in_owner = true
-position = Vector2(0.50000376, -332.5)
+position = Vector2(-38.88283, -302.98044)
 shape = SubResource("RectangleShape2D_up5l8")
 debug_color = Color(1, 0.4919266, 0.7495633, 0.41960785)
 
+[node name="TopTop" type="Sprite2D" parent="Top" unique_id=1263104619]
+show_behind_parent = true
+position = Vector2(0, -478)
+texture = ExtResource("4_apcp8")
+region_enabled = true
+region_rect = Rect2(0, 476.75885, 978, 137.1897)
+
 [node name="Stand" type="Sprite2D" parent="." unique_id=1722052013]
-modulate = Color(0.1893278, 0.18932778, 0.1893278, 1)
-z_index = -2
-position = Vector2(0, 110)
-scale = Vector2(2.3281252, 1.234375)
-texture = ExtResource("1_fbecm")
+position = Vector2(0.5, -41.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_apcp8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1996016657]
-position = Vector2(0, 110.5)
+position = Vector2(0.5, 93.25)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_qm8dg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1102545800]
 libraries/ = SubResource("AnimationLibrary_cpb4d")
 
-[connection signal="body_entered" from="Top/CrushingArea" to="." method="_on_crushing_area_body_entered"]
+[connection signal="body_entered" from="Top/Press/CrushingArea" to="." method="_on_crushing_area_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
