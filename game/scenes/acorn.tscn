@@ -38,16 +38,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbhm3"]
-radius = 15.0
-height = 44.0
+radius = 30.0
+height = 94.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vytj"]
-radius = 20.0
-height = 58.0
+radius = 40.0
+height = 114.0
 
 [node name="Acorn" unique_id=467946923 instance=ExtResource("1_p24tb")]
 break_on_name = "Rock"
 velocity_needed = 200.0
+crack_sound = "play_nut_cracking_on_rock_sound"
+no_crack_sound_fail = "play_nut_on_rock_sound"
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
 sprite_frames = SubResource("SpriteFrames_ksfeo")

@@ -7,13 +7,22 @@ class_name Interactable extends RigidBody2D
 ## on body entered, and on zone entered are required functions
 ## on picked up and on dropped are optional functions to write
 
+const HighlightShader := preload("res://game/shaders/interactable_highlight.gdshader")
+
 @export var can_interact: bool = true
 @export var can_pick_up: bool = false
 
 @export var carry_offset := Vector2(-60, 0)
 
+@export var outline_color: Color = Color.WHITE
+@export var outline_width: float = 10.0
+@export var interact_speed: float = 3.0
+@export var interact_strength: float = 0.35
+
+
 @onready var zone_detector: Area2D = %ZoneDetection
 @onready var collision_detector: Node2D = %InteractionDetection
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var is_held: bool = false
 var held_by: Node2D = null
@@ -29,15 +38,26 @@ func _ready() -> void:
 	contact_monitor = true
 	max_contacts_reported = 4
 	
+	var material := ShaderMaterial.new()
+	material.shader = HighlightShader
+	material.set_shader_parameter("outline_color", outline_color)
+	material.set_shader_parameter("outline_width", outline_width)
+	material.set_shader_parameter("interact_speed", interact_speed)
+	material.set_shader_parameter("interact_strength", interact_strength)
+	sprite.material = material
+	
 	if collision_detector is not CollisionShape2D and collision_detector is not CollisionPolygon2D:
 		push_error("collision_detector on %s is not a collision shape or polygon" % name)
 
+func set_highlighted(value: bool) -> void:
+	sprite.material.set_shader_parameter("highlighted", value)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	if is_held and is_instance_valid(held_by):
 		# This is very janky code, but it works ONLY if the bird is holding the interactable
 		global_position = held_by.global_position + carry_offset * (-1 if held_by.sprite.flip_h else 1)
+
 
 # Used for picking up 
 func pick_up(new_held_by: Node2D) -> bool:
@@ -77,7 +97,11 @@ func _on_dropped() -> void:
 	pass
 
 func _on_body_entered(_body: Node) -> void: # touches another body
-	push_error("Interactable._on_body_entered() not implemented in %s. Define it!" % name)
+	# either grass (outside) or concrete (inside)
+	if _body.is_in_group("grass"):
+		AudioController.play_item_dropped_on_grass_sound()
+	if _body.is_in_group("concrete"):
+		AudioController.play_item_dropped_on_generic_surface_sound()
 
 
 func _on_zone_entered(_area: Area2D) -> void: # touches a zone

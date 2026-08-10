@@ -16,7 +16,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obx1p"]
-size = Vector2(150, 78)
+size = Vector2(345, 202)
 
 [node name="Hammer" unique_id=467946923 instance=ExtResource("1_obx1p")]
 mass = 10.0
@@ -25,10 +25,12 @@ script = ExtResource("2_822vd")
 can_pick_up = true
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
+scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_822vd")
 
 [node name="InteractionDetection" parent="." index="1" unique_id=2022553380]
-polygon = PackedVector2Array(-46, 25, -46, 34, -70, 34, -70, 27, -62, 27, -63, 19, -70, 15, -71, 2, -67, -15, -58, -29, -47, -35, -55, -26, -56, -13, -51, -1, -47, 1, -6, -4, -6, -8, 0, -12, 6, -10, 16, -8, 64, -15, 70, -12, 70, -1, 65, 4, 55, 0, 6, 5, 5, 12, 1, 14, -3, 12, -4, 6, -46, 10, -49, 14, -54, 16, -54, 25)
+polygon = PackedVector2Array(-12, -9, -12, -17, -3, -24, 14, -20, 33, -17, 131, -32, 142, -23, 141, 1, 129, 10, 109, 2, 13, 12, 12, 21, 3, 29, -6, 24, -9, 12, -92, 22, -97, 31, -107, 35, -107, 52, -94, 51, -93, 69, -139, 69, -139, 53, -126, 52, -127, 38, -142, 29, -142, 0, -137, -24, -121, -52, -95, -72, -111, -47, -111, -26, -97, 1)
 
 [node name="CollisionShape2D" parent="ZoneDetection" parent_id_path=PackedInt32Array(843964876) index="0" unique_id=2004845325]
+position = Vector2(-1.5, -3)
 shape = SubResource("RectangleShape2D_obx1p")

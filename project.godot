@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jam Jam Game Game Project Project"
-run/main_scene="uid://b5r4tjv0lc28s"
+run/main_scene="uid://sikc02ddepyt"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -25,9 +25,12 @@ AppConfig="*uid://cjke6crjg14a0"
 SceneLoader="*uid://cbwmrnp0af35y"
 ProjectMusicController="*uid://r5t485lr3p7t"
 ProjectUISoundController="*uid://cc37235kj4384"
+AudioController="*uid://dj8ahekh8t5bo"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

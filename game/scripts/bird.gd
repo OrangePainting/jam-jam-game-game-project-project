@@ -13,11 +13,12 @@ var push_force = 80.0 # This represents the player's inertia.
 var interactables : Array[Interactable] = []
 var held_interactable: Interactable = null
 var max_push_speed: float = 120.0
+var targeted_interactable: Interactable = null
 
 signal interacted(object: Interactable)
 
 func _ready() -> void:
-	sprite.play()
+	sprite.play("flying_open_beak")
 
 func _physics_process(delta: float) -> void:
 	# move left/right
@@ -31,14 +32,15 @@ func _physics_process(delta: float) -> void:
 	# flap
 	if Input.is_action_just_pressed("flap"):
 		velocity.y = flap
+		AudioController.play_wing_flap_sound()
 	
 	if velocity.x > 0: # Face right
 		sprite.flip_h = true
-		interaction_detector.get_child(0).position.x = abs(interaction_detector.get_child(0).position.x)
+		interaction_detector.position.x = abs(interaction_detector.position.x)
 		
 	elif velocity.x < 0: # Face left
 		sprite.flip_h = false
-		interaction_detector.get_child(0).position.x = -abs(interaction_detector.get_child(0).position.x)
+		interaction_detector.position.x = -abs(interaction_detector.position.x)
 	
 	move_and_slide()
 	
@@ -60,6 +62,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func interact() -> void:
 	var interactable := find_interactable()
+
 	if held_interactable:
 		# If we can place it down, try to place it down
 		if interactable is PlaceInteractable:
@@ -71,11 +74,13 @@ func interact() -> void:
 	else:
 		# Not interactable. Nothing to do
 		if not interactable:
+			AudioController.play_crow_caw()
 			return
 		
 		# Try to pick it up otherwise interact
 		if interactable.can_pick_up:
 			interactable.pick_up(self)
+			sprite.play("flying_closed_beak")
 			held_interactable = interactable
 		else:
 			interactable.interact(self)
@@ -85,23 +90,40 @@ func drop_held_item() -> void:
 	held_interactable.drop()
 	held_interactable = null
 	interacted.emit(null) # null signal means object is dropped
+	sprite.play("flying_open_beak")
+
+func updated_targeted_interactable() -> void:
+	var target := find_interactable()
+	
+	if target and not target.can_pick_up: target = null
+	if target == targeted_interactable: return
+	
+	if is_instance_valid(targeted_interactable):
+		targeted_interactable.set_highlighted(false)
+	
+	targeted_interactable = target
+	if targeted_interactable:
+		targeted_interactable.set_highlighted(true)
 
 func find_interactable() -> Interactable:
 	if len(interactables) == 0: return null
 	
 	return interactables[-1]
 
+func _on_interaction_detector_area_entered(area: Area2D) -> void:
+	var interactable: Node2D = area.get_node("..")
+	if interactable and interactable is Interactable:
+		if interactable not in interactables:
+			interactables.append(interactable)
+			print("obj added")
+			updated_targeted_interactable()
 
-func _on_interaction_detector_body_entered(body: Node2D) -> void:
-	if body is Interactable:
-		if body not in interactables:
-			interactables.append(body)
-			print("object added")
 
 
-
-func _on_interaction_detector_body_exited(body: Node2D) -> void:
-	if body is Interactable:
-		if body in interactables:
-			interactables.erase(body)
-			print("object removed")
+func _on_interaction_detector_area_exited(area: Area2D) -> void:
+	var interactable: Node2D = area.get_node("..")
+	if interactable and interactable is Interactable:
+		if interactable in interactables:
+			interactables.erase(interactable)
+			print("obj removed")
+			updated_targeted_interactable()

@@ -38,17 +38,19 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pvuun"]
-radius = 56.0803
+radius = 112.16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qm8dg"]
-size = Vector2(104, 42)
+size = Vector2(220, 121)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o64dn"]
-radius = 69.02898
+radius = 138.06
 
 [node name="Coconut" unique_id=467946923 instance=ExtResource("1_hwgam")]
 mass = 15.0
 velocity_needed = 300.0
+crack_sound = "play_hammer_cracking_nut_sound"
+crack_index = 0
 can_pick_up = false
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
@@ -59,7 +61,7 @@ position = Vector2(-3, 8)
 shape = SubResource("CircleShape2D_pvuun")
 
 [node name="Anti Roll Collider" type="CollisionShape2D" parent="." index="2" unique_id=631637898]
-position = Vector2(-2, 42)
+position = Vector2(-2, 67.5)
 shape = SubResource("RectangleShape2D_qm8dg")
 
 [node name="ZoneDetection" parent="." index="3" unique_id=843964876]
