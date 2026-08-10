@@ -91,6 +91,9 @@ func play_demolition_crane_sound() -> void:
 func play_demolition_crane_loop() -> void:
 	if not mute: $DemolitionCraneLoop.play()
 
+func play_vault_door_sound() -> void:
+	if not mute: $VaultDoor.play()
+
 # On Loop Finished
 func _on_demolition_crane_finished() -> void:
 	if not mute: $DemolitionCraneLoop.play()

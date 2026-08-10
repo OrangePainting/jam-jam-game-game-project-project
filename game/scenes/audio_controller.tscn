@@ -155,4 +155,3 @@ volume_db = 3.649
 
 [connection signal="finished" from="MainMusic" to="." method="_on_main_music_finished"]
 [connection signal="finished" from="DemolitionCraneStart" to="." method="_on_demolition_crane_start_finished"]
-[connection signal="finished" from="DemolitionCraneLoop" to="." method="_on_demolition_crane_finished"]
