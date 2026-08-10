@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://6dqd6stsbtr0"]
+
+[ext_resource type="PackedScene" uid="uid://cknhiv8ec21rl" path="res://game/scenes/pick_up_interactable.tscn" id="1_s3j24"]
+
+[node name="CraneKey" unique_id=467946923 instance=ExtResource("1_s3j24")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
+modulate = Color(0.155359, 0, 0.98617846, 1)

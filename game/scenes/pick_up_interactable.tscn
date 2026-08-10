@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cknhiv8ec21rl"]
+
+[ext_resource type="PackedScene" uid="uid://mth47qr6lm0d" path="res://game/scenes/interactable.tscn" id="1_p5kc2"]
+[ext_resource type="Script" uid="uid://dh5mbpxypi2x0" path="res://game/scripts/pick_up_interactable.gd" id="2_fmt2k"]
+
+[node name="PickUpInteractable" unique_id=467946923 instance=ExtResource("1_p5kc2")]
+script = ExtResource("2_fmt2k")
+can_pick_up = true

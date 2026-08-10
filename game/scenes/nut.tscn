@@ -23,6 +23,7 @@ velocity_needed = 100.0
 crack_sound = ""
 crack_index = 0
 no_crack_sound_fail = ""
+drop_on_break = null
 can_pick_up = true
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]

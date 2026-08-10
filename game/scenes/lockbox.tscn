@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://g7uytigmrbqh" path="res://game/scenes/nut.tscn" id="1_slg4c"]
 [ext_resource type="Texture2D" uid="uid://buqjft5cgjgjx" path="res://game/assets/icon.svg" id="2_grb1v"]
+[ext_resource type="PackedScene" uid="uid://suv1hx0rwpvw" path="res://game/scenes/safe_code.tscn" id="2_iuvvf"]
 [ext_resource type="Texture2D" uid="uid://btwts2hm8x83s" path="res://game/assets/lockbox_temp.png" id="2_qsdxa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_grb1v"]
@@ -40,7 +41,7 @@ _data = {
 
 [node name="Lockbox" unique_id=467946923 instance=ExtResource("1_slg4c")]
 crack_sound = "play_safe_box_break_sound"
-drop_on_break = null
+drop_on_break = ExtResource("2_iuvvf")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
 scale = Vector2(2, 2)
