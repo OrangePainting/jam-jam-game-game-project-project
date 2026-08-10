@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://tfba0sutoajq"]
+
+[ext_resource type="PackedScene" uid="uid://b8f0knv2eo1n8" path="res://game/scenes/place_interactable.tscn" id="1_72yvw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72yvw"]
+size = Vector2(410, 550)
+
+[node name="SafePanel" unique_id=467946923 instance=ExtResource("1_72yvw")]
+key_item_name = "SafeCode"
+delete_on_key_used = true
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
+visible = false
+
+[node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
+visible = false
+disabled = true
+
+[node name="CollisionShape2D" parent="ZoneDetection" parent_id_path=PackedInt32Array(843964876) index="0" unique_id=2004845325]
+shape = SubResource("RectangleShape2D_72yvw")

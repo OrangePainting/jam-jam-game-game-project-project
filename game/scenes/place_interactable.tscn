@@ -6,6 +6,10 @@
 [node name="PlaceInteractable" unique_id=467946923 instance=ExtResource("1_lybmt")]
 script = ExtResource("2_cc8yq")
 key_item_name = ""
+accept_sound = ""
+decline_sound = ""
+interact_sound = ""
+delete_on_key_used = false
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
 z_index = -5

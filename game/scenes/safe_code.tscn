@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://suv1hx0rwpvw"]
+
+[ext_resource type="PackedScene" uid="uid://mth47qr6lm0d" path="res://game/scenes/interactable.tscn" id="1_eyf3b"]
+[ext_resource type="Script" uid="uid://dh5mbpxypi2x0" path="res://game/scripts/pick_up_interactable.gd" id="2_xfrjf"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xfrjf"]
+load_path = "res://.godot/imported/code_key_temp.png-ceed50f4a85df1393c48da2147626e6d.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hv7pb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_xfrjf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpirx"]
+size = Vector2(105, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci3ce"]
+size = Vector2(127, 84)
+
+[node name="SafeCode" unique_id=467946923 instance=ExtResource("1_eyf3b")]
+script = ExtResource("2_xfrjf")
+can_pick_up = true
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
+sprite_frames = SubResource("SpriteFrames_hv7pb")
+frame_progress = 0.76260716
+
+[node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_kpirx")
+
+[node name="CollisionShape2D" parent="ZoneDetection" parent_id_path=PackedInt32Array(843964876) index="0" unique_id=2004845325]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ci3ce")

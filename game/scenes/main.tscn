@@ -12,20 +12,22 @@
 [ext_resource type="PackedScene" uid="uid://ddtapa4whmhc" path="res://game/scenes/hydraulic_press.tscn" id="11_6mtf4"]
 [ext_resource type="PackedScene" uid="uid://dkuyd28c24vjw" path="res://game/scenes/tutorial_popup.tscn" id="11_j51q3"]
 [ext_resource type="PackedScene" uid="uid://b75yku6p2sgnx" path="res://game/scenes/lockbox.tscn" id="12_6mtf4"]
+[ext_resource type="PackedScene" uid="uid://b6nn543s2h3n6" path="res://game/scenes/safe.tscn" id="13_3v7cf"]
 [ext_resource type="PackedScene" uid="uid://b0yowyrv33ity" path="res://game/scenes/hydraulic_press_controls.tscn" id="13_12hk3"]
+[ext_resource type="PackedScene" uid="uid://cek48srginj1" path="res://game/scenes/clipboard.tscn" id="14_3v7cf"]
 
 [node name="Main" type="Node2D" unique_id=1933915851]
 script = ExtResource("1_20rwd")
 
 [node name="World" parent="." unique_id=643275255 instance=ExtResource("2_8buom")]
+position = Vector2(257, -25)
 
 [node name="Bird" parent="." unique_id=1533840289 node_paths=PackedStringArray("main") instance=ExtResource("2_jbjdl")]
-position = Vector2(1162, 1709)
+position = Vector2(1177, 1571)
 main = NodePath("..")
 
 [node name="Acorn" parent="." unique_id=1248292710 instance=ExtResource("4_8buom")]
 position = Vector2(702, 1868)
-drop_on_break = null
 
 [node name="Rock" parent="." unique_id=359115719 instance=ExtResource("7_uk16q")]
 z_index = -1
@@ -33,30 +35,35 @@ position = Vector2(400, 1930)
 
 [node name="Peanut" parent="." unique_id=2112127106 instance=ExtResource("9_shkmv")]
 position = Vector2(1467, 2034)
-drop_on_break = null
 
-[node name="Guy" parent="." unique_id=467946923 instance=ExtResource("9_j51q3")]
+[node name="Guy" parent="." unique_id=2083490357 instance=ExtResource("9_j51q3")]
 z_index = -1
 position = Vector2(1718, 1709)
 
 [node name="Coconut" parent="." unique_id=57514100 instance=ExtResource("9_rmvmd")]
-position = Vector2(4723, 853)
+position = Vector2(4813, 858)
 
 [node name="Hammer" parent="." unique_id=730389216 instance=ExtResource("10_shkmv")]
-position = Vector2(4521, 1826)
+position = Vector2(4792, 1803)
 
 [node name="Lockbox" parent="." unique_id=1590690851 instance=ExtResource("12_6mtf4")]
-position = Vector2(5188, 895)
+position = Vector2(5355, 902)
 
 [node name="Hydraulic_Press" parent="." unique_id=1461353893 instance=ExtResource("11_6mtf4")]
-position = Vector2(5436, 1834)
+position = Vector2(5687, 1779)
 
 [node name="HydraulicPressControls" parent="." unique_id=1493323821 instance=ExtResource("13_12hk3")]
-position = Vector2(5435, 1912)
+position = Vector2(5687, 1878)
+
+[node name="Safe" parent="." unique_id=846948096 instance=ExtResource("13_3v7cf")]
+z_index = 0
+position = Vector2(5789, 753)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=977001564]
 
 [node name="TutorialPopup" parent="UI" unique_id=1812180768 instance=ExtResource("11_j51q3")]
+
+[node name="Clipboard" parent="UI" unique_id=845054054 instance=ExtResource("14_3v7cf")]
 
 [connection signal="item_placed" from="Guy" to="Peanut" method="_on_place_interactable_item_placed"]
 [connection signal="interacted_with" from="HydraulicPressControls" to="Hydraulic_Press" method="_on_hydraulic_press_controls_interacted_with"]
