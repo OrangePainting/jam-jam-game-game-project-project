@@ -75,7 +75,7 @@ func play_hydraulic_press_running_sound() -> void:
 func play_nut_statue_demolish_sound() -> void:
 	if not mute: $NutStatue.play()
 
-func play_safe_box_break_sound() -> void:
+func play_safe_box_break_sound(_index: int = 0) -> void:
 	if not mute: $SafeBox.play()
 
 func play_demolition_crane_sound() -> void:

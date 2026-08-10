@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dy0jv27dnscex"]
 
 [ext_resource type="PackedScene" uid="uid://d34xrtlbg4qn0" path="res://game/scenes/interactable_polygon.tscn" id="1_obx1p"]
-[ext_resource type="Script" uid="uid://dh5mbpxypi2x0" path="res://game/scripts/hammer.gd" id="2_822vd"]
+[ext_resource type="Script" uid="uid://dh5mbpxypi2x0" path="res://game/scripts/pick_up_interactable.gd" id="2_822vd"]
 [ext_resource type="Texture2D" uid="uid://djpsptjj2bgwf" path="res://game/assets/hammer.png" id="3_822vd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_822vd"]

@@ -12,6 +12,8 @@ extends Interactable
 @export var crack_index: int = 0
 @export var no_crack_sound_fail: String = ""
 
+@export var drop_on_break: PackedScene = null
+
 var broken: bool = false;
 
 func _on_body_entered(body: Node) -> void:
@@ -40,11 +42,11 @@ func _try_break_open(body: Node) -> bool:
 		if AudioController.has_method(no_crack_sound_fail):
 			AudioController.call(no_crack_sound_fail)
 	
-	
 	return false
 
 # Controls the breaking open animation
 func _break_open():
+	if broken: return
 	print("%s broke!" % name)
 	broken = true
 	# Set this so that we can play the eating sound instead of picking it up when further interacted with.
@@ -52,8 +54,14 @@ func _break_open():
 	set_deferred("freeze", true)
 	set_deferred("position", position)
 	$AnimatedSprite2D.play("Cracked")
+	
 	if AudioController.has_method(crack_sound):
 		AudioController.call(crack_sound, crack_index)
+		
+	if drop_on_break != null:
+		var object = drop_on_break.instantiate()
+		object.position = position
+		get_node("..").add_child.call_deferred(object) # Puts node on parent of this node
 
 # Gets called after this interactable has been broken and is then interacted with.
 func interact(_interactor: Node2D) -> bool:
