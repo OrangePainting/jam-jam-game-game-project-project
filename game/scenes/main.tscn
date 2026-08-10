@@ -21,6 +21,7 @@ position = Vector2(952, 1895)
 main = NodePath("..")
 
 [node name="Rock" parent="." unique_id=359115719 instance=ExtResource("7_uk16q")]
+z_index = -1
 position = Vector2(400, 1930)
 
 [node name="Peanut" parent="." unique_id=2112127106 instance=ExtResource("9_shkmv")]
@@ -31,6 +32,7 @@ velocity_needed = 10.0
 position = Vector2(702, 1868)
 
 [node name="Guy" parent="." unique_id=467946923 instance=ExtResource("9_j51q3")]
+z_index = -1
 position = Vector2(1718, 1709)
 
 [node name="Coconut" parent="." unique_id=57514100 instance=ExtResource("9_rmvmd")]
@@ -38,7 +40,7 @@ position = Vector2(4723, 853)
 break_on_name = "Hammer"
 
 [node name="Hammer" parent="." unique_id=730389216 instance=ExtResource("10_shkmv")]
-position = Vector2(4557, 1846)
+position = Vector2(4557, 1809)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=977001564]
 
