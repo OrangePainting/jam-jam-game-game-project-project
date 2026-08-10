@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cek48srginj1" path="res://game/scenes/clipboard.tscn" id="14_3v7cf"]
 [ext_resource type="PackedScene" uid="uid://hkwylp50takf" path="res://game/scenes/crane.tscn" id="14_cxktm"]
 [ext_resource type="PackedScene" uid="uid://bw4hu6ct7o34w" path="res://game/scenes/big_nut.tscn" id="15_aju45"]
+[ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="18_q1x0e"]
 
 [node name="Main" type="Node2D" unique_id=1933915851]
 script = ExtResource("1_20rwd")
@@ -80,6 +81,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="WinLoseManager" type="Node" parent="." unique_id=675389683]
+unique_name_in_owner = true
+script = ExtResource("18_q1x0e")
 
 [connection signal="item_placed" from="Guy" to="Peanut" method="_on_place_interactable_item_placed"]
 [connection signal="interacted_with" from="HydraulicPressControls" to="Hydraulic_Press" method="_on_hydraulic_press_controls_interacted_with"]
