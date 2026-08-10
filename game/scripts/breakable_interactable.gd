@@ -58,6 +58,7 @@ func _break_open():
 # Gets called after this interactable has been broken and is then interacted with.
 func interact(_interactor: Node2D) -> bool:
 	AudioController.call("play_crow_eat")
+	queue_free()
 	return true
 
 func _on_place_interactable_item_placed(interactor: Node2D, item: Interactable) -> void:
