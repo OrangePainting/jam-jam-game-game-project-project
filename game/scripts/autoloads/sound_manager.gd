@@ -12,7 +12,7 @@ var current_track = 0
 func _ready() -> void:
 	randomize()
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	#$Music.finished.connect(on_music_finished)
+	#play_in_game_music()
 
 # If we decide to add menu music, uncomment these methods and make the $MenuMusic node
 #func play_menu_music() -> void:
@@ -21,17 +21,22 @@ func _ready() -> void:
 #func stop_menu_music() -> void:
 	#if not mute: $MenuMusic.stop()
 
-#func play_in_game_music() -> void:
-	##if mute or music_tracks.is_empty(): return
-	##$Music.stream = music_tracks[current_track]
-	#$Music.play()
-#
-#func on_music_finished() -> void:
-	##current_track = (current_track + 1) % len(music_tracks)
-	#play_in_game_music()
+func play_in_game_music() -> void:
+	#if mute or music_tracks.is_empty(): return
+	#$Music.stream = music_tracks[current_track]
+	$MainMusic.play()
+
+func _on_main_music_finished() -> void:
+	#current_track = (current_track + 1) % len(music_tracks)
+	play_in_game_music()
 
 func play_crow_caw() -> void:
 	if not mute: $CrowCaw.play()
+
+func play_crow_eat() -> void:
+	if not mute:
+		$CrowEat.pitch_scale = randf_range(0.9, 1.1)
+		$CrowEat.play()
 
 func play_hammer_cracking_nut_sound(index: int = 0) -> void:
 	if mute or hammer_cracking_incremental_sounds.is_empty(): return

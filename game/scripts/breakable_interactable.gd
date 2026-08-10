@@ -49,6 +49,8 @@ func _break_open():
 	if broken: return
 	print("%s broke!" % name)
 	broken = true
+	# Set this so that we can play the eating sound instead of picking it up when further interacted with.
+	can_pick_up = false
 	set_deferred("freeze", true)
 	set_deferred("position", position)
 	$AnimatedSprite2D.play("Cracked")
@@ -58,6 +60,13 @@ func _break_open():
 		var object = drop_on_break.instantiate()
 		object.position = position
 		get_node("..").add_child.call_deferred(object) # Puts node on parent of this node
+
+# Gets called after this interactable has been broken and is then interacted with.
+func interact(_interactor: Node2D) -> bool:
+	if broken:
+		AudioController.call("play_crow_eat")
+		queue_free()
+	return true
 
 func _on_place_interactable_item_placed(interactor: Node2D, item: Interactable) -> void:
 	if not broken:
