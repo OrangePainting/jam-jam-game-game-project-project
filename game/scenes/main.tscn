@@ -58,11 +58,11 @@ position = Vector2(5428, 1812)
 
 [node name="HydraulicPressControls" parent="." unique_id=1493323821 instance=ExtResource("13_12hk3")]
 position = Vector2(5428, 1911)
+accept_sound = "play_key_inserted_sound"
 
 [node name="Safe" parent="." unique_id=846948096 instance=ExtResource("13_3v7cf")]
 z_index = 0
 position = Vector2(5511, 751)
-no_crack_sound_fail = "play_vault_door_sound"
 
 [node name="Crane" parent="." unique_id=467946923 instance=ExtResource("14_cxktm")]
 z_index = -4
