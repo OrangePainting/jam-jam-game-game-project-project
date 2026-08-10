@@ -6,13 +6,19 @@ extends StaticBody2D
 
 @export var object_to_crush: String = ""
 
+var is_running: bool = false
+
 func _ready() -> void:
 	crushing_area.get_child(0).disabled = true
 
 func start_hydraulic_press():
-	$AnimationPlayer.play("crush")
-	AudioController.play_hydraulic_press_running_sound()
-	crushing_area.get_child(0).disabled = false
+	if not is_running:
+		is_running = true
+		$AnimationPlayer.play("crush")
+		AudioController.play_hydraulic_press_running_sound()
+		crushing_area.get_child(0).disabled = false
+		await $AnimationPlayer.animation_finished
+		is_running = false
 
 func _on_hydraulic_press_controls_interacted_with(_interactor: Node2D) -> void:
 	start_hydraulic_press()

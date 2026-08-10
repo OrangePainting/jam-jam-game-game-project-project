@@ -28,11 +28,8 @@ size = Vector2(353, 715)
 key_item_name = "Peanut"
 accept_sound = "play_man_accept_nut_sound"
 decline_sound = "play_man_decline_nut_sound"
-interact_sound = ""
-delete_on_key_used = false
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
-z_index = 0
 sprite_frames = SubResource("SpriteFrames_ncnps")
 
 [node name="InteractionDetection" parent="." index="1" unique_id=1239826289]

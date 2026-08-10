@@ -150,7 +150,7 @@ size = Vector2(112, 312)
 
 [node name="Bird" type="CharacterBody2D" unique_id=1533840289]
 collision_layer = 2
-collision_mask = 21
+collision_mask = 5
 script = ExtResource("1_k4npa")
 speed = 600.0
 gravity = 1400.0
@@ -184,7 +184,7 @@ shape = SubResource("RectangleShape2D_jwl2k")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2129902884]
 limit_left = 0
 limit_top = 0
-limit_right = 6000
+limit_right = 5760
 limit_bottom = 2160
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
