@@ -46,6 +46,8 @@ position = Vector2(4530, 874)
 
 [node name="Hammer" parent="." unique_id=730389216 instance=ExtResource("10_shkmv")]
 position = Vector2(4574, 1824)
+mass = 20.0
+gravity_scale = 3.0
 
 [node name="Lockbox" parent="." unique_id=1590690851 instance=ExtResource("12_6mtf4")]
 position = Vector2(5065, 909)

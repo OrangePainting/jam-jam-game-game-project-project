@@ -22,6 +22,8 @@ size = Vector2(141, 93)
 size = Vector2(165, 110)
 
 [node name="SafeCode" unique_id=467946923 instance=ExtResource("1_eyf3b")]
+mass = 5.0
+gravity_scale = 2.0
 script = ExtResource("2_xfrjf")
 can_pick_up = true
 
