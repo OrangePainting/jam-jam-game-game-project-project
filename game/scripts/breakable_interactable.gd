@@ -54,8 +54,10 @@ func _break_open():
 	set_deferred("freeze", true)
 	set_deferred("position", position)
 	$AnimatedSprite2D.play("Cracked")
+	
 	if AudioController.has_method(crack_sound):
 		AudioController.call(crack_sound, crack_index)
+		
 	if drop_on_break != null:
 		var object = drop_on_break.instantiate()
 		object.position = position

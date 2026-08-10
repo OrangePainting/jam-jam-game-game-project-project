@@ -29,6 +29,15 @@ size = Vector2(282, 142)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuvvf"]
 size = Vector2(340, 217)
 
+[sub_resource type="Animation" id="Animation_grb1v"]
+resource_name = "lockbox_breaking"
+length = 5.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iuvvf"]
+_data = {
+&"lockbox_breaking": SubResource("Animation_grb1v")
+}
+
 [node name="Lockbox" unique_id=467946923 instance=ExtResource("1_slg4c")]
 crack_sound = "play_safe_box_break_sound"
 drop_on_break = null
@@ -44,3 +53,6 @@ shape = SubResource("RectangleShape2D_grb1v")
 [node name="CollisionShape2D" parent="ZoneDetection" parent_id_path=PackedInt32Array(843964876) index="0" unique_id=2004845325]
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_iuvvf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=65377391]
+libraries/ = SubResource("AnimationLibrary_iuvvf")
