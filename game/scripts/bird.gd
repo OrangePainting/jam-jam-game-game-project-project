@@ -95,11 +95,7 @@ func drop_held_item() -> void:
 func updated_targeted_interactable() -> void:
 	var target := find_interactable()
 	
-	if target and target is BreakableInteractable:
-		# Allows you to still target the interactable for eating after you've broken it
-		if not target.can_pick_up and not target.broken:
-			target = null
-	elif target and not target.can_pick_up: 
+	if target and not target.can_interact:
 		target = null
 	
 	if target == targeted_interactable: return
