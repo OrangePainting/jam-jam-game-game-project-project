@@ -48,7 +48,7 @@ size = Vector2(220, 121)
 radius = 138.06
 
 [node name="Coconut" unique_id=467946923 instance=ExtResource("1_hwgam")]
-mass = 15.0
+mass = 20.0
 break_on_name = "Hammer"
 velocity_needed = 300.0
 crack_sound = "play_hammer_cracking_nut_sound"

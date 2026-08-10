@@ -22,6 +22,8 @@ size = Vector2(185, 94)
 size = Vector2(245, 203)
 
 [node name="HydraulicPressKey" unique_id=467946923 instance=ExtResource("1_xgnfg")]
+mass = 5.0
+gravity_scale = 2.0
 script = ExtResource("2_mg4se")
 can_pick_up = true
 carry_offset = Vector2(-60, 0)

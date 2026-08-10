@@ -46,6 +46,8 @@ radius = 33.0
 height = 134.0
 
 [node name="Peanut" unique_id=467946923 instance=ExtResource("1_3vvhk")]
+mass = 5.0
+gravity_scale = 2.0
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
 sprite_frames = SubResource("SpriteFrames_p024j")

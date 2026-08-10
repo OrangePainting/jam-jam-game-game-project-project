@@ -40,6 +40,8 @@ _data = {
 }
 
 [node name="Lockbox" unique_id=467946923 instance=ExtResource("1_slg4c")]
+mass = 15.0
+gravity_scale = 2.0
 crack_sound = "play_safe_box_break_sound"
 drop_on_break = ExtResource("2_iuvvf")
 
