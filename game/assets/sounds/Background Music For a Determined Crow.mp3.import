@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgraxvo1b2v0b"
+path="res://.godot/imported/Background Music For a Determined Crow.mp3-761d1983eb8c5864409d527b8543f9d0.mp3str"
+
+[deps]
+
+source_file="res://game/assets/sounds/Background Music For a Determined Crow.mp3"
+dest_files=["res://.godot/imported/Background Music For a Determined Crow.mp3-761d1983eb8c5864409d527b8543f9d0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
