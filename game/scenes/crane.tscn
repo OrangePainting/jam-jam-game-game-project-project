@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://hkwylp50takf"]
+
+[ext_resource type="PackedScene" uid="uid://b8f0knv2eo1n8" path="res://game/scenes/place_interactable.tscn" id="1_aqu6g"]
+[ext_resource type="Texture2D" uid="uid://d3ebu3r86clwo" path="res://game/assets/crane.png" id="2_6gnnn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cyunr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6gnnn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmhde"]
+size = Vector2(342, 248)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q6mi"]
+size = Vector2(390.5, 284)
+
+[node name="Crane" unique_id=467946923 instance=ExtResource("1_aqu6g")]
+key_item_name = "CraneKey"
+delete_on_key_used = true
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
+position = Vector2(43.5, -41)
+sprite_frames = SubResource("SpriteFrames_cyunr")
+
+[node name="InteractionDetection" parent="." index="1" unique_id=1239826289]
+position = Vector2(314, 310)
+shape = SubResource("RectangleShape2D_mmhde")
+
+[node name="ZoneDetection" parent="." index="2" unique_id=843964876]
+position = Vector2(362, 283)
+
+[node name="CollisionShape2D" parent="ZoneDetection" index="0" unique_id=2004845325]
+position = Vector2(-49.25, 25)
+shape = SubResource("RectangleShape2D_7q6mi")
