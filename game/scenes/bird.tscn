@@ -143,46 +143,51 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4npa"]
-size = Vector2(60, 20)
+size = Vector2(64, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwl2k"]
-size = Vector2(42, 148)
+size = Vector2(112, 312)
 
 [node name="Bird" type="CharacterBody2D" unique_id=1533840289]
 collision_layer = 2
 collision_mask = 21
 script = ExtResource("1_k4npa")
-speed = 400.0
+speed = 600.0
+gravity = 1400.0
+flap = -1200.0
+terminal_velocity = 800.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=453085113]
 unique_name_in_owner = true
-scale = Vector2(0.5, 0.5)
+position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_li6ia")
 animation = &"flying_open_beak"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=997517872]
-position = Vector2(0, -18)
-polygon = PackedVector2Array(0, 0, 30, 60, -30, 60)
+position = Vector2(-13, 3)
+polygon = PackedVector2Array(5, -19, 37, 61, -27, 61)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1748180598]
-position = Vector2(0, 51.5)
+position = Vector2(-8, 92)
 shape = SubResource("RectangleShape2D_k4npa")
 
 [node name="InteractionDetector" type="Area2D" parent="." unique_id=950097939]
 unique_name_in_owner = true
+position = Vector2(-112, 0)
 collision_layer = 2
 collision_mask = 24
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector" unique_id=406665853]
-position = Vector2(-57, 16)
 shape = SubResource("RectangleShape2D_jwl2k")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2129902884]
-limit_left = 151
-limit_bottom = 649
+limit_left = 0
+limit_top = 0
+limit_right = 5760
+limit_bottom = 2160
 position_smoothing_enabled = true
-position_smoothing_speed = 2.0
+position_smoothing_speed = 4.0
 
-[connection signal="body_entered" from="InteractionDetector" to="." method="_on_interaction_detector_body_entered"]
-[connection signal="body_exited" from="InteractionDetector" to="." method="_on_interaction_detector_body_exited"]
+[connection signal="area_entered" from="InteractionDetector" to="." method="_on_interaction_detector_area_entered"]
+[connection signal="area_exited" from="InteractionDetector" to="." method="_on_interaction_detector_area_exited"]

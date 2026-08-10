@@ -39,11 +39,11 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.x > 0: # Face right
 		sprite.flip_h = true
-		interaction_detector.get_child(0).position.x = abs(interaction_detector.get_child(0).position.x)
+		interaction_detector.position.x = abs(interaction_detector.position.x)
 		
 	elif velocity.x < 0: # Face left
 		sprite.flip_h = false
-		interaction_detector.get_child(0).position.x = -abs(interaction_detector.get_child(0).position.x)
+		interaction_detector.position.x = -abs(interaction_detector.position.x)
 	
 	move_and_slide()
 	
@@ -109,20 +109,20 @@ func find_interactable() -> Interactable:
 	
 	return interactables[-1]
 
-
-func _on_interaction_detector_body_entered(body: Node2D) -> void:
-	if body is Interactable:
-		if body not in interactables:
-			interactables.append(body)
-			print("object added")
+func _on_interaction_detector_area_entered(area: Area2D) -> void:
+	var interactable: Node2D = area.get_node("..")
+	if interactable and interactable is Interactable:
+		if interactable not in interactables:
+			interactables.append(interactable)
+			print("obj added")
 			updated_targeted_interactable()
 
 
 
-func _on_interaction_detector_body_exited(body: Node2D) -> void:
-	if body is Interactable:
-		if body in interactables:
-			interactables.erase(body)
-			print("object removed")
+func _on_interaction_detector_area_exited(area: Area2D) -> void:
+	var interactable: Node2D = area.get_node("..")
+	if interactable and interactable is Interactable:
+		if interactable in interactables:
+			interactables.erase(interactable)
+			print("obj removed")
 			updated_targeted_interactable()
-			

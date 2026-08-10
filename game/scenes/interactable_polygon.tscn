@@ -21,6 +21,7 @@ size = Vector2(64, 64)
 collision_layer = 16
 collision_mask = 23
 script = ExtResource("1_qdwfh")
+carry_offset = Vector2(-120, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=591686422]
 scale = Vector2(0.5, 0.5)
