@@ -36,7 +36,7 @@ z_index = -1
 position = Vector2(400, 1930)
 
 [node name="Peanut" parent="." unique_id=2112127106 instance=ExtResource("9_shkmv")]
-position = Vector2(1467, 2034)
+position = Vector2(2148, 2044)
 crack_sound = "play_nut_cracking_on_rock_sound"
 crack_index = 1
 
