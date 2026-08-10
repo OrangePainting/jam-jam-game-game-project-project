@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://b6nn543s2h3n6" path="res://game/scenes/safe.tscn" id="13_3v7cf"]
 [ext_resource type="PackedScene" uid="uid://b0yowyrv33ity" path="res://game/scenes/hydraulic_press_controls.tscn" id="13_12hk3"]
 [ext_resource type="PackedScene" uid="uid://cek48srginj1" path="res://game/scenes/clipboard.tscn" id="14_3v7cf"]
+[ext_resource type="PackedScene" uid="uid://hkwylp50takf" path="res://game/scenes/crane.tscn" id="14_cxktm"]
+[ext_resource type="PackedScene" uid="uid://bw4hu6ct7o34w" path="res://game/scenes/big_nut.tscn" id="15_aju45"]
 
 [node name="Main" type="Node2D" unique_id=1933915851]
 script = ExtResource("1_20rwd")
@@ -57,6 +59,13 @@ position = Vector2(5428, 1911)
 [node name="Safe" parent="." unique_id=846948096 instance=ExtResource("13_3v7cf")]
 z_index = 0
 position = Vector2(5511, 751)
+
+[node name="Crane" parent="." unique_id=467946923 instance=ExtResource("14_cxktm")]
+z_index = -4
+position = Vector2(2283, 1139)
+
+[node name="BigNut" parent="." unique_id=1482624471 instance=ExtResource("15_aju45")]
+position = Vector2(984, 1470)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=977001564]
 
