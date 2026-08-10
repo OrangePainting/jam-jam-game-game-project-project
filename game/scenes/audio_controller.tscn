@@ -39,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://c5uhuom7h6ko8" path="res://game/assets/sounds/nut_statue_demolition_v1.wav" id="34_crmek"]
 [ext_resource type="AudioStream" uid="uid://btlwi3na61vj5" path="res://game/assets/sounds/safe-box-breaking-open.wav" id="35_hpkcp"]
 [ext_resource type="AudioStream" uid="uid://d2rjt8j0ollcs" path="res://game/assets/sounds/vault_door_opening.wav" id="36_kk87r"]
+[ext_resource type="AudioStream" uid="uid://d4nelfb85la8e" path="res://game/assets/sounds/bird_eating_nut.wav" id="39_oeaco"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_li6ia"]
 streams_count = 4
@@ -141,6 +142,9 @@ stream = ExtResource("35_hpkcp")
 stream = ExtResource("36_kk87r")
 
 [node name="DemolitionCrane" type="AudioStreamPlayer" parent="." unique_id=1278573590]
+
+[node name="CrowEat" type="AudioStreamPlayer" parent="." unique_id=1270240858]
+stream = ExtResource("39_oeaco")
 
 [connection signal="finished" from="MainMusic" to="." method="_on_main_music_finished"]
 [connection signal="finished" from="DemolitionCrane" to="." method="_on_demolition_crane_finished"]

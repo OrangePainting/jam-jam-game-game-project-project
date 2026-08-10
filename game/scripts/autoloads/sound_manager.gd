@@ -33,6 +33,11 @@ func _on_main_music_finished() -> void:
 func play_crow_caw() -> void:
 	if not mute: $CrowCaw.play()
 
+func play_crow_eat() -> void:
+	if not mute:
+		$CrowEat.pitch_scale = randf_range(0.9, 1.1)
+		$CrowEat.play()
+
 func play_hammer_cracking_nut_sound(index: int = 0) -> void:
 	if mute or hammer_cracking_incremental_sounds.is_empty(): return
 	$HammerCrackingNut.stream = hammer_cracking_incremental_sounds[index % len(hammer_cracking_incremental_sounds)]
