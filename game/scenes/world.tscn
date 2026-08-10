@@ -128,18 +128,18 @@ position = Vector2(4246, 961.4312)
 shape = SubResource("RectangleShape2D_2gpe7")
 
 [node name="BackLayer" type="Sprite2D" parent="." unique_id=1845851355]
-z_index = -1
+z_index = -10
 texture = ExtResource("2_uu6rj")
 centered = false
 
 [node name="HouseFrame" type="Sprite2D" parent="." unique_id=1689989462]
+z_index = -5
 position = Vector2(3112, 0)
 texture = ExtResource("3_wkjk4")
 centered = false
 
 [node name="HouseFrameTopLayer" type="Sprite2D" parent="." unique_id=1270438902]
-visible = false
-z_index = 1
+z_index = 10
 position = Vector2(4050, 203)
 texture = ExtResource("3_wkjk4")
 centered = false
@@ -147,13 +147,13 @@ region_enabled = true
 region_rect = Rect2(939.19885, 203.27934, 236.17883, 784.1118)
 
 [node name="TopCover" type="Sprite2D" parent="." unique_id=758724744]
-z_index = 1
+z_index = 10
 position = Vector2(4277, 200)
 texture = ExtResource("4_y08k3")
 centered = false
 
 [node name="BottomCover" type="Sprite2D" parent="." unique_id=523055003]
-z_index = 1
+z_index = 10
 position = Vector2(4314, 1166)
 texture = ExtResource("5_nepmf")
 centered = false
