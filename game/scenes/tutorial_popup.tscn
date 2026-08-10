@@ -39,12 +39,13 @@ offset_left = 515.0
 offset_top = 130.0
 offset_right = 1427.0
 offset_bottom = 563.75
-text = "Find a way to crack open these nuts!
+text = "Destory the shells! Crack open these nuts!
 
 WASD / Arrow Keys - Move
 E - Interact
+P - Pause
 
-Mouse over the clipboard to look at objectives"
+Mouse over clipboard to look at objectives"
 label_settings = SubResource("LabelSettings_lkpux")
 horizontal_alignment = 1
 vertical_alignment = 1
