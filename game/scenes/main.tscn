@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://x47mcvtsxm8c" path="res://game/scenes/coconut.tscn" id="9_rmvmd"]
 [ext_resource type="PackedScene" uid="uid://43gblgadoc6c" path="res://game/scenes/peanut.tscn" id="9_shkmv"]
 [ext_resource type="PackedScene" uid="uid://dy0jv27dnscex" path="res://game/scenes/hammer.tscn" id="10_shkmv"]
+[ext_resource type="PackedScene" uid="uid://cek48srginj1" path="res://game/scenes/clipboard.tscn" id="11_6mtf4"]
 [ext_resource type="PackedScene" uid="uid://dkuyd28c24vjw" path="res://game/scenes/tutorial_popup.tscn" id="11_j51q3"]
 
 [node name="Main" type="Node2D" unique_id=1933915851]
@@ -43,5 +44,7 @@ position = Vector2(4557, 1846)
 [node name="UI" type="CanvasLayer" parent="." unique_id=977001564]
 
 [node name="TutorialPopup" parent="UI" unique_id=1812180768 instance=ExtResource("11_j51q3")]
+
+[node name="Clipboard" parent="UI" unique_id=845054054 instance=ExtResource("11_6mtf4")]
 
 [connection signal="item_placed" from="Guy" to="Peanut" method="_on_place_interactable_item_placed"]
