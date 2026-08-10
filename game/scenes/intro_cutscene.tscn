@@ -32,6 +32,6 @@ theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "You are a crow. A crow with a dream. Your dream: to crack the biggest, toughest nut ever.
 
-(Click to continue)"
+(Click or Press Any Key to continue)"
 horizontal_alignment = 1
 vertical_alignment = 1
