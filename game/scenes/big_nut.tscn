@@ -1,7 +1,29 @@
 [gd_scene format=3 uid="uid://bw4hu6ct7o34w"]
 
 [ext_resource type="Texture2D" uid="uid://ds3jqijeyhy4i" path="res://game/assets/bigNut.png" id="1_c4mpr"]
+[ext_resource type="PackedScene" uid="uid://g7uytigmrbqh" path="res://game/scenes/nut.tscn" id="1_c4yv3"]
 
-[node name="BigNut" type="Sprite2D" unique_id=1482624471]
+[sub_resource type="SpriteFrames" id="SpriteFrames_q86pu"]
+animations = [{
+"frames": [],
+"loop": 0,
+"name": &"Cracked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c4mpr")
+}],
+"loop": 1,
+"name": &"Uncracked",
+"speed": 5.0
+}]
+
+[node name="BigNutFr" unique_id=467946923 instance=ExtResource("1_c4yv3")]
+freeze = true
+can_interact = false
+can_pick_up = false
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
 z_index = -2
-texture = ExtResource("1_c4mpr")
+sprite_frames = SubResource("SpriteFrames_q86pu")
