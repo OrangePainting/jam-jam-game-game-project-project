@@ -22,6 +22,9 @@ size = Vector2(353, 715)
 
 [node name="Guy" unique_id=467946923 instance=ExtResource("1_87sp0")]
 key_item_name = "Peanut"
+accept_sound = "play_man_accept_nut_sound"
+decline_sound = "play_man_decline_nut_sound"
+interact_sound = ""
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=591686422]
 z_index = 0
