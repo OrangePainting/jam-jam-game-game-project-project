@@ -4,6 +4,7 @@ extends Control
 @onready var bullet_text = %Bullets
 var things_completed: int = 3
 
+@export var strikethrough_list: Array[Node]
 
 var clipboard_bullets: Array[String] = [
 	"Acorn",
@@ -23,8 +24,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var t = ""
 	for i in range(len(clipboard_bullets)):
-		if i < things_completed:
-			t += "[s color = 'green']" + clipboard_bullets[i] + "[/s]" + "\n"
-		else:
-			t += clipboard_bullets[i] + "\n"
+		if i < things_completed: strikethrough_list[i].show()
+		else: strikethrough_list[i].hide()
+		t += clipboard_bullets[i] + "\n"
 	bullet_text.text = "[ul]" + t + "[/ul]"
